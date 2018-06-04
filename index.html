@@ -1,0 +1,295 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Overview &mdash; networkqit alpha documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within networkqit alpha documentation" href="_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="networkqit alpha documentation" href="#"/>
+        <link rel="next" title="Install" href="install.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> networkqit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/infotheory.html">Information theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/graphtheory.html">Graph theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/algorithms.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citing.html">Citing</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">networkqit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="#">Docs</a> &raquo;</li>
+      
+    <li>Overview</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="overview">
+<span id="contents"></span><h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Release:</th><td class="field-body">0.1</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Date:</th><td class="field-body">Jun 04, 2018</td>
+</tr>
+</tbody>
+</table>
+<p><strong>networkqit</strong> is a Python package for working within the spectral entropy framework of complex networks.
+It allows to compute spectral entropies and to fit different models to your observed network easily.
+<strong>networkqit</strong> is heavily based on existing packages, such as:</p>
+<blockquote>
+<div><ul class="simple">
+<li>networkx</li>
+<li>numpy</li>
+<li>scipy</li>
+<li>pandas</li>
+</ul>
+</div></blockquote>
+<p>In the current state of development, <strong>networkqit</strong> features two methods of optimization for the relative entropy between observation and model.
+The first is based on an approximation that makes the problem tractable analytically.
+The second is based on stochastic optimization and allows one to obtain correct estimates of the model parameters, with no approximations, however at the expenses of speed and precision.</p>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install.html#install-the-development-version">Install the development version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#optional-packages">Optional packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#installation-in-the-virtualenv-environment">Installation in the virtualenv environment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#computing-the-spectral-entropy">Computing the spectral entropy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#model-optimization">Model optimization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reference/infotheory.html">Information theory</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference/generated/networkqit.infotheory.density.html">networkqit.infotheory.density</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reference/graphtheory.html">Graph theory</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference/generated/networkqit.graphtheory.graphs.html">networkqit.graphtheory.graphs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/generated/networkqit.graphtheory.matrices.html">networkqit.graphtheory.matrices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reference/algorithms.html">Algorithms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference/generated/networkqit.algorithms.optimize.html">networkqit.algorithms.optimize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/generated/networkqit.algorithms.community.html">networkqit.algorithms.community</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citing.html">Citing</a></li>
+</ul>
+</div>
+<span class="target" id="module-networkqit"></span><div class="section" id="networkqit">
+<h3>networkqit<a class="headerlink" href="#networkqit" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>networkqit (nq) is a Python package for the fitting of complex generative models to networks using quantum information theory.</p>
+<p><a class="reference external" href="https://carlonicolini.github.io/networkqit">https://carlonicolini.github.io/networkqit</a></p>
+</div></blockquote>
+<div class="section" id="using">
+<h4>Using<a class="headerlink" href="#using" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>Just write in Python</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">networkqit</span> <span class="k">as</span> <span class="nn">nq</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">=</span><span class="n">nx</span><span class="o">.</span><span class="n">karate_club_graph</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">beta</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">to_numpy_matrix</span><span class="p">(),</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">spdens</span> <span class="o">=</span> <span class="n">nq</span><span class="o">.</span><span class="n">SpectralDensity</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">beta</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">spdens</span><span class="o">.</span><span class="n">rho</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+</div>
+<div class="section" id="free-software">
+<h2>Free software<a class="headerlink" href="#free-software" title="Permalink to this headline">¶</a></h2>
+<p><strong>networkqit</strong> is free software; you can redistribute it and/or modify it under the
+terms of the <a class="reference internal" href="license.html"><span class="doc">3-clause BSD License</span></a>.  I welcome contributions. Join me on <a class="reference external" href="https://bitbucket.org/carlonicolini/networkqit">Bitbucket</a>.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="install.html" class="btn btn-neutral float-right" title="Install" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2018, networkqit Developers.
+      Last updated on Jun 04, 2018.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'alpha',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/copybutton.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,298 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Install &mdash; networkqit alpha documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within networkqit alpha documentation" href="_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="networkqit alpha documentation" href="index.html"/>
+        <link rel="next" title="Tutorial" href="tutorial.html"/>
+        <link rel="prev" title="Overview" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> networkqit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#install-the-development-version">Install the development version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#optional-packages">Optional packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-in-the-virtualenv-environment">Installation in the virtualenv environment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/infotheory.html">Information theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/graphtheory.html">Graph theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/algorithms.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citing.html">Citing</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">networkqit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Install</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="install">
+<h1>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h1>
+<p>networkqit requires Python 2.7, 3.4, 3.5, or 3.6.  If you do not already
+have a Python environment configured on your computer, please see the
+instructions for installing the full <a class="reference external" href="https://scipy.org/install.html">scientific Python stack</a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you are on Windows and want to install optional packages (e.g., <code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy</span></code>),
+then you will need to install a Python distribution such as
+<a class="reference external" href="https://www.anaconda.com/download/">Anaconda</a>,
+<a class="reference external" href="https://www.enthought.com/product/canopy">Enthought Canopy</a>,
+<a class="reference external" href="http://python-xy.github.io/">Python(x,y)</a>,
+<a class="reference external" href="https://winpython.github.io/">WinPython</a>, or
+<a class="reference external" href="http://www.pyzo.org/">Pyzo</a>.
+If you use one of these Python distribution, please refer to their online
+documentation.</p>
+</div>
+<p>Below we assume you have the default Python environment already configured on
+your computer and you intend to install <code class="docutils literal notranslate"><span class="pre">networkqit</span></code> inside of it.  If you want
+to create and work with Python virtual environments, please follow instructions
+on <a class="reference external" href="https://docs.python.org/3/library/venv.html">venv</a> and <a class="reference external" href="http://docs.python-guide.org/en/latest/dev/virtualenvs/">virtual
+environments</a>.</p>
+<p>First, make sure you have the latest version of <code class="docutils literal notranslate"><span class="pre">pip</span></code> (the Python package manager)
+installed. If you do not, refer to the <a class="reference external" href="https://pip.pypa.io/en/stable/installing/">Pip documentation</a> and install <code class="docutils literal notranslate"><span class="pre">pip</span></code> first.</p>
+<div class="section" id="install-the-development-version">
+<h2>Install the development version<a class="headerlink" href="#install-the-development-version" title="Permalink to this headline">¶</a></h2>
+<p>At the moment <a class="reference internal" href="index.html#module-networkqit" title="networkqit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">networkqit</span></code></a> is in alpha stage and its API could change very fast.
+For this reason <a class="reference internal" href="index.html#module-networkqit" title="networkqit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">networkqit</span></code></a> is still not available on <code class="xref py py-obj docutils literal notranslate"><span class="pre">pip</span></code>.
+However you can manually download <code class="docutils literal notranslate"><span class="pre">networkqit</span></code> from the repository:
+<a class="reference external" href="https://bitbucket.org/carlonicolini/networkqit/">Bitbucket</a></p>
+<p>If you have <a class="reference external" href="https://git-scm.com/">Git</a> installed on your system, do</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone https://bitbucket.org/carlonicolini/networkqit
+$ cd networkqit
+$ pip install -e .
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> command allows you to follow the development branch as
+it changes by creating links in the right places and installing the command
+line scripts to the appropriate locations.
+The package comes with its dependencies which get installed automatically.</p>
+<p>Then, if you want to update <code class="docutils literal notranslate"><span class="pre">networkqit</span></code> at any time, in the same directory do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git pull
+</pre></div>
+</div>
+</div>
+<div class="section" id="optional-packages">
+<h2>Optional packages<a class="headerlink" href="#optional-packages" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Some optional packages (e.g., <code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">gdal</span></code>) may require compiling
+C or C++ code.  If you have difficulty installing these packages
+with <code class="xref py py-obj docutils literal notranslate"><span class="pre">pip</span></code>, please review the instructions for installing
+the full <a class="reference external" href="https://scipy.org/install.html">scientific Python stack</a>.</p>
+</div>
+<p>The following optional packages provide additional functionality.</p>
+<ul class="simple">
+<li><a class="reference external" href="http://pandas.pydata.org/">pandas</a> (&gt;= 0.20.0) provides a DataFrame, which
+is a tabular data structure with labeled axes.</li>
+<li><a class="reference external" href="http://matplotlib.org/">Matplotlib</a> (&gt;= 2.0.2) provides flexible drawing of
+graphs.</li>
+<li><a href="#id2"><span class="problematic" id="id3">`</span></a>drawnow &lt;<a class="reference external" href="https://pypi.org/project/drawnow/">https://pypi.org/project/drawnow/</a>&gt;`_(&gt;=0.72.0) is a MATLAB-like drawnow command to monitor the optimization process.</li>
+<li><a class="reference external" href="https://pypi.org/project/Numdifftools/">numdifftools</a> (&gt;=0.9.20) is a suite of tools written in _Python to solve automatic numerical differentiation problems in one or more variables. It can be necessary to exactly compute gradients of relative entropy.</li>
+<li><a class="reference external" href="https://pypi.org/project/seaborn/">seaborn</a> (&gt;=0.8.1) is a library for making attractive and informative statistical graphics in Python.</li>
+</ul>
+<p>To install <code class="docutils literal notranslate"><span class="pre">networkqit</span></code> and all optional packages, do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install networkqit[all]
+</pre></div>
+</div>
+<p>To explicitly install all optional packages, do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install numpy scipy pandas matplotlib seaborn numdifftools drawnow
+</pre></div>
+</div>
+<p>Or, install any optional package (e.g., <code class="docutils literal notranslate"><span class="pre">numpy</span></code>) individually:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install numpy
+</pre></div>
+</div>
+</div>
+<div class="section" id="installation-in-the-virtualenv-environment">
+<h2>Installation in the virtualenv environment<a class="headerlink" href="#installation-in-the-virtualenv-environment" title="Permalink to this headline">¶</a></h2>
+<p>We suggest to use a Python3 virtualenv to setup the networkqit package.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tutorial.html" class="btn btn-neutral float-right" title="Tutorial" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Overview" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2018, networkqit Developers.
+      Last updated on Jun 04, 2018.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'alpha',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/copybutton.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,263 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>networkqit.algorithms.optimize &mdash; networkqit alpha documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within networkqit alpha documentation" href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="networkqit alpha documentation" href="../../index.html"/>
+        <link rel="up" title="Algorithms" href="../algorithms.html"/>
+        <link rel="next" title="networkqit.algorithms.community" href="networkqit.algorithms.community.html"/>
+        <link rel="prev" title="Algorithms" href="../algorithms.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> networkqit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../infotheory.html">Information theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphtheory.html">Graph theory</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../algorithms.html">Algorithms</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">networkqit.algorithms.optimize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networkqit.algorithms.community.html">networkqit.algorithms.community</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../citing.html">Citing</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">networkqit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../algorithms.html">Algorithms</a> &raquo;</li>
+      
+    <li>networkqit.algorithms.optimize</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-networkqit.algorithms.optimize">
+<span id="networkqit-algorithms-optimize"></span><h1>networkqit.algorithms.optimize<a class="headerlink" href="#module-networkqit.algorithms.optimize" title="Permalink to this headline">¶</a></h1>
+<p>Define the base and inherited classes for model optimization, both in the continuous approximation
+and for the stochastic optimization.</p>
+<p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">ModelOptimizer</span></code> class defines the base class where all the other optimization classes must inherit.
+The most important class to optimize an expected adjacency model is <code class="xref py py-obj docutils literal notranslate"><span class="pre">ExpectedModelOptimizer</span></code>. In this class the gradients are defined as:</p>
+<div class="math notranslate">
+\[\frac{\partial S(\rho \| \sigma(\mathbb{E}_{\theta}[L]))}{\partial \theta_k} = \beta \textrm{Tr}\biggl \lbrack \left(\rho - \sigma(\mathbb{E}_{\theta}[L])\right)\frac{\partial \mathbb{E}_{\theta}[L]}{\partial \theta_k} \biggr \rbrack\]</div>
+<p>In the <code class="xref py py-obj docutils literal notranslate"><span class="pre">StochasticOptimizer</span></code> class we instead address the issue to implement stochastic gradient descent methods.
+In these methods the gradients are defined as:</p>
+<div class="math notranslate">
+\[\frac{\partial \mathbb{E}_{\theta}[S(\rho \| \sigma)]}{\partial \theta_k} = \beta \textrm{Tr}\biggl \lbrack \rho \frac{\partial  \mathbb{E}_{\theta}[L]}{\partial \theta_k}\biggr \rbrack + \frac{\partial}{\partial \theta_k}\mathbb{E}_{\theta}\biggl \lbrack \log \left( \textrm{Tr}\left \lbrack e^{-\beta L(\theta)} \right \rbrack \right) \biggr \rbrack\]</div>
+<p>The stochastic optimizer is the <strong>correct</strong> optimizer, as it makes no approximation on the Laplacian eigenvalues.
+It is more suitable for small graphs and intermediate <span class="math notranslate">\(\beta\)</span>, where the differences between the random matrix spectrum and its expected counterpart are non-neglibile.
+For large and dense enough graphs however the <code class="xref py py-obj docutils literal notranslate"><span class="pre">ExpectedModelOptimizer</span></code> works well and yields deterministic results, as the optimization landscape is smooth.</p>
+<p>In order to minimize the expected relative entropy then, we need both the expected Laplacian formula, which is simple to get, and a way to estimate the second summand in the gradient, that involves averaging over different realizations of the log trace of  <span class="math notranslate">\(e^{-\beta L(\theta)}\)</span>.
+The better the approximation to the expected logtrace <span class="math notranslate">\(\mathbb{E}_{\theta}[\log \textrm{Tr}[\exp{(-\beta L)}]]\)</span> is, the better is the estimate of the gradients.</p>
+<p>Finally, the <code class="xref py py-obj docutils literal notranslate"><span class="pre">MLEOptimizer</span></code> maximizes the standard likelihood of a model and it is not related to the spectral entropies framework introduced in the paper on which <a class="reference internal" href="../../index.html#module-networkqit" title="networkqit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">networkqit</span></code></a> is based.</p>
+<p class="rubric">Classes</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">ExpectedModelOptimizer</span></code>(A,&nbsp;x0,&nbsp;beta_range,&nbsp;…)</td>
+<td>This class is at the base of the continuos optimization method</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">MLEOptimizer</span></code>(A,&nbsp;x0,&nbsp;**kwargs)</td>
+<td>This class, inheriting from the model optimizer class solves the problem of  maximum likelihood parameters estimation in the classical settings.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">ModelOptimizer</span></code>(A,&nbsp;**kwargs)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">StochasticGradientDescent</span></code>(A,&nbsp;x0,&nbsp;beta_range,&nbsp;…)</td>
+<td>Implements the stochastic gradient descent.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">StochasticOptimizer</span></code>(A,&nbsp;x0,&nbsp;beta_range,&nbsp;**kwargs)</td>
+<td><blockquote>
+<div>This class is at the base of possible implementation of methods based     on stochastic gradient descent.</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="networkqit.algorithms.community.html" class="btn btn-neutral float-right" title="networkqit.algorithms.community" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../algorithms.html" class="btn btn-neutral" title="Algorithms" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2018, networkqit Developers.
+      Last updated on Jun 04, 2018.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'alpha',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/copybutton.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
