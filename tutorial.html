@@ -199,7 +199,8 @@ We first create the object ErdosRenyi that describes the expected laplacian, adj
 Finally the <code class="xref py py-obj docutils literal notranslate"><span class="pre">beta_range</span></code> is a numpy array with the range of <code class="xref py py-obj docutils literal notranslate"><span class="pre">beta</span></code> over which to optimize the model.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">solver</span> <span class="o">=</span> <span class="n">nq</span><span class="o">.</span><span class="n">ExpectedModelOptimizer</span><span class="p">(</span><span class="n">A</span><span class="o">=</span><span class="n">A</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.2</span><span class="p">]),</span> <span class="n">beta_range</span><span class="o">=</span><span class="n">beta_range</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">solver</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">ermodel</span><span class="p">,</span> <span class="n">ermodel</span><span class="o">.</span><span class="n">expected_laplacian_grad</span><span class="p">,</span> <span class="n">step_callback</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sol</span> <span class="o">=</span> <span class="n">solver</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -225,7 +226,7 @@ Finally the <code class="xref py py-obj docutils literal notranslate"><span clas
   <div role="contentinfo">
     <p>
         &copy; Copyright 2017-2018, networkqit Developers.
-      Last updated on Jun 04, 2018.
+      Last updated on Jun 05, 2018.
 
     </p>
   </div>
