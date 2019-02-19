@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Install &mdash; networkqit alpha documentation</title>
+  <title>Install &mdash; networkqit beta documentation</title>
   
 
   
@@ -19,7 +19,7 @@
   
   
     
-      <link rel="search" type="application/opensearchdescription+xml" title="Search within networkqit alpha documentation" href="_static/opensearch.xml"/>
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within networkqit beta documentation" href="_static/opensearch.xml"/>
     
 
   
@@ -35,7 +35,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="networkqit alpha documentation" href="index.html"/>
+    <link rel="top" title="networkqit beta documentation" href="index.html"/>
         <link rel="next" title="Tutorial" href="tutorial.html"/>
         <link rel="prev" title="Overview" href="index.html"/> 
 
@@ -65,7 +65,7 @@
             
             
               <div class="version">
-                0.1
+                0.2
               </div>
             
           
@@ -88,9 +88,12 @@
             
                 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation-from-the-pypi-repositories">Installation from the Pypi repositories</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ubuntu">Ubuntu</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#install-the-development-version">Install the development version</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#optional-packages">Optional packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#installation-in-the-virtualenv-environment">Installation in the virtualenv environment</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
@@ -143,7 +146,7 @@
             
   <div class="section" id="install">
 <h1>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h1>
-<p>networkqit requires Python 2.7, 3.4, 3.5, or 3.6.  If you do not already
+<p>networkqit requires Python 3.5 or newer.  If you do not already
 have a Python environment configured on your computer, please see the
 instructions for installing the full <a class="reference external" href="https://scipy.org/install.html">scientific Python stack</a>.</p>
 <div class="admonition note">
@@ -159,30 +162,44 @@ If you use one of these Python distribution, please refer to their online
 documentation.</p>
 </div>
 <p>Below we assume you have the default Python environment already configured on
-your computer and you intend to install <code class="docutils literal notranslate"><span class="pre">networkqit</span></code> inside of it.  If you want
+your computer and you intend to install <code class="xref py py-obj docutils literal notranslate"><span class="pre">**networkqit**</span></code> inside of it.  If you want
 to create and work with Python virtual environments, please follow instructions
 on <a class="reference external" href="https://docs.python.org/3/library/venv.html">venv</a> and <a class="reference external" href="http://docs.python-guide.org/en/latest/dev/virtualenvs/">virtual
 environments</a>.</p>
 <p>First, make sure you have the latest version of <code class="docutils literal notranslate"><span class="pre">pip</span></code> (the Python package manager)
 installed. If you do not, refer to the <a class="reference external" href="https://pip.pypa.io/en/stable/installing/">Pip documentation</a> and install <code class="docutils literal notranslate"><span class="pre">pip</span></code> first.</p>
+<div class="section" id="installation-from-the-pypi-repositories">
+<h2>Installation from the Pypi repositories<a class="headerlink" href="#installation-from-the-pypi-repositories" title="Permalink to this headline">¶</a></h2>
+<p><strong>networkqit</strong> has reached a pretty stable usability and is hosted on the Pypi repositories.
+We currently only support Linux, here the detailed commands for installation on Ubuntu are given.
+To install <strong>networkqit</strong> you just need to install <code class="xref py py-obj docutils literal notranslate"><span class="pre">pip</span></code> at the latest Python3 version.</p>
+<div class="section" id="ubuntu">
+<h3>Ubuntu<a class="headerlink" href="#ubuntu" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">pip</span>
+<span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">pip</span>
+<span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">networkqit</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="install-the-development-version">
 <h2>Install the development version<a class="headerlink" href="#install-the-development-version" title="Permalink to this headline">¶</a></h2>
-<p>At the moment <a class="reference internal" href="index.html#module-networkqit" title="networkqit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">networkqit</span></code></a> is in alpha stage and its API could change very fast.
-For this reason <a class="reference internal" href="index.html#module-networkqit" title="networkqit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">networkqit</span></code></a> is still not available on <code class="xref py py-obj docutils literal notranslate"><span class="pre">pip</span></code>.
-However you can manually download <code class="docutils literal notranslate"><span class="pre">networkqit</span></code> from the repository:
+<p>At the moment <strong>networkqit</strong> is in alpha stage and its API could change very fast.
+For this reason <strong>networkqit</strong> is still not available on <code class="xref py py-obj docutils literal notranslate"><span class="pre">pip</span></code>.
+However you can manually download <strong>networkqit</strong> from the repository:
 <a class="reference external" href="https://bitbucket.org/carlonicolini/networkqit/">Bitbucket</a></p>
 <p>If you have <a class="reference external" href="https://git-scm.com/">Git</a> installed on your system, do</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone https://bitbucket.org/carlonicolini/networkqit
-$ cd networkqit
-$ pip install -e .
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">bitbucket</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">carlonicolini</span><span class="o">/</span><span class="n">networkqit</span>
+<span class="n">cd</span> <span class="n">networkqit</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> command allows you to follow the development branch as
 it changes by creating links in the right places and installing the command
 line scripts to the appropriate locations.
 The package comes with its dependencies which get installed automatically.</p>
-<p>Then, if you want to update <code class="docutils literal notranslate"><span class="pre">networkqit</span></code> at any time, in the same directory do:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git pull
+<p>Then, if you want to update <strong>networkqit</strong> at any time, in the same directory do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">pull</span>
 </pre></div>
 </div>
 </div>
@@ -195,32 +212,28 @@ C or C++ code.  If you have difficulty installing these packages
 with <code class="xref py py-obj docutils literal notranslate"><span class="pre">pip</span></code>, please review the instructions for installing
 the full <a class="reference external" href="https://scipy.org/install.html">scientific Python stack</a>.</p>
 </div>
-<p>The following optional packages provide additional functionality.</p>
+<p>The following optional packages provide additional functionalities, and are not necessary for the purely numerical calculations of spectral entropies.</p>
 <ul class="simple">
 <li><a class="reference external" href="http://pandas.pydata.org/">pandas</a> (&gt;= 0.20.0) provides a DataFrame, which
 is a tabular data structure with labeled axes.</li>
 <li><a class="reference external" href="http://matplotlib.org/">Matplotlib</a> (&gt;= 2.0.2) provides flexible drawing of
 graphs.</li>
-<li><a href="#id2"><span class="problematic" id="id3">`</span></a>drawnow &lt;<a class="reference external" href="https://pypi.org/project/drawnow/">https://pypi.org/project/drawnow/</a>&gt;`_(&gt;=0.72.0) is a MATLAB-like drawnow command to monitor the optimization process.</li>
+<li><a class="reference external" href="https://pypi.org/project/drawnow/">drawnow</a> (&gt;=0.72.0) is a MATLAB-like drawnow command to monitor the optimization process.</li>
 <li><a class="reference external" href="https://pypi.org/project/Numdifftools/">numdifftools</a> (&gt;=0.9.20) is a suite of tools written in _Python to solve automatic numerical differentiation problems in one or more variables. It can be necessary to exactly compute gradients of relative entropy.</li>
 <li><a class="reference external" href="https://pypi.org/project/seaborn/">seaborn</a> (&gt;=0.8.1) is a library for making attractive and informative statistical graphics in Python.</li>
 </ul>
-<p>To install <code class="docutils literal notranslate"><span class="pre">networkqit</span></code> and all optional packages, do:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install networkqit[all]
+<p>To install <strong>networkqit</strong> and all optional packages, do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">networkqit</span><span class="p">[</span><span class="nb">all</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>To explicitly install all optional packages, do:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install numpy scipy pandas matplotlib seaborn numdifftools drawnow
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">numpy</span> <span class="n">autograd</span> <span class="n">scipy</span> <span class="n">pandas</span> <span class="n">matplotlib</span> <span class="n">seaborn</span> <span class="n">numdifftools</span> <span class="n">drawnow</span>
 </pre></div>
 </div>
 <p>Or, install any optional package (e.g., <code class="docutils literal notranslate"><span class="pre">numpy</span></code>) individually:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install numpy
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">numpy</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="installation-in-the-virtualenv-environment">
-<h2>Installation in the virtualenv environment<a class="headerlink" href="#installation-in-the-virtualenv-environment" title="Permalink to this headline">¶</a></h2>
-<p>We suggest to use a Python3 virtualenv to setup the networkqit package.</p>
 </div>
 </div>
 
@@ -243,8 +256,8 @@ graphs.</li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017-2018, networkqit Developers.
-      Last updated on Jun 04, 2018.
+        &copy; Copyright 2017-2019, networkqit Developers.
+      Last updated on Jan 23, 2019.
 
     </p>
   </div>
@@ -266,7 +279,7 @@ graphs.</li>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'alpha',
+            VERSION:'beta',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  false

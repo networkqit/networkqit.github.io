@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>networkqit.graphtheory.matrices &mdash; networkqit alpha documentation</title>
+  <title>networkqit.graphtheory.matrices &mdash; networkqit beta documentation</title>
   
 
   
@@ -19,7 +19,7 @@
   
   
     
-      <link rel="search" type="application/opensearchdescription+xml" title="Search within networkqit alpha documentation" href="../../_static/opensearch.xml"/>
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within networkqit beta documentation" href="../../_static/opensearch.xml"/>
     
 
   
@@ -35,10 +35,7 @@
         <link rel="index" title="Index"
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="networkqit alpha documentation" href="../../index.html"/>
-        <link rel="up" title="Graph theory" href="../graphtheory.html"/>
-        <link rel="next" title="Algorithms" href="../algorithms.html"/>
-        <link rel="prev" title="networkqit.graphtheory.graphs" href="networkqit.graphtheory.graphs.html"/> 
+    <link rel="top" title="networkqit beta documentation" href="../../index.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -66,7 +63,7 @@
             
             
               <div class="version">
-                0.1
+                0.2
               </div>
             
           
@@ -87,15 +84,11 @@
           
             
             
-                <ul class="current">
+                <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../infotheory.html">Information theory</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../graphtheory.html">Graph theory</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="networkqit.graphtheory.graphs.html">networkqit.graphtheory.graphs</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">networkqit.graphtheory.matrices</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../graphtheory.html">Graph theory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithms.html">Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../citing.html">Citing</a></li>
@@ -129,8 +122,6 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
       
-          <li><a href="../graphtheory.html">Graph theory</a> &raquo;</li>
-      
     <li>networkqit.graphtheory.matrices</li>
       <li class="wy-breadcrumbs-aside">
         
@@ -143,26 +134,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-networkqit.graphtheory.matrices">
-<span id="networkqit-graphtheory-matrices"></span><h1>networkqit.graphtheory.matrices<a class="headerlink" href="#module-networkqit.graphtheory.matrices" title="Permalink to this headline">¶</a></h1>
-<p>Definition of some utility matrices.</p>
-<p>The graph Laplacian is computed from an adjacency matrix as <span class="math notranslate">\(L=D-A\)</span>.</p>
-<p>The normalized graph Laplacian is computed as <span class="math notranslate">\(\mathcal{L}=I - D^{-1/2} A D^{-1/2}\)</span>.</p>
-<p class="rubric">Functions</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">graph_laplacian</span></code>(A)</td>
-<td>Get the graph Laplacian from the adjacency matrix <span class="math notranslate">\(L=D-A\)</span></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalized_graph_laplacian</span></code>(A)</td>
-<td>Get the normalized graph laplacian  <span class="math notranslate">\(\mathcal{L}=I - D^{-1/2} A D^{-1/2}\)</span></td>
-</tr>
-</tbody>
-</table>
+  <div class="section" id="networkqit-graphtheory-matrices">
+<h1>networkqit.graphtheory.matrices<a class="headerlink" href="#networkqit-graphtheory-matrices" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
@@ -170,22 +143,13 @@
           </div>
           <footer>
   
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../algorithms.html" class="btn btn-neutral float-right" title="Algorithms" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="networkqit.graphtheory.graphs.html" class="btn btn-neutral" title="networkqit.graphtheory.graphs" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017-2018, networkqit Developers.
-      Last updated on Jun 04, 2018.
+        &copy; Copyright 2017-2019, networkqit Developers.
+      Last updated on Feb 19, 2019.
 
     </p>
   </div>
@@ -207,7 +171,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'alpha',
+            VERSION:'beta',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  false
