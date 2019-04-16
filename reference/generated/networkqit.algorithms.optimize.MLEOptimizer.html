@@ -1,0 +1,267 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>networkqit.algorithms.optimize.MLEOptimizer &mdash; networkqit beta documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/copybutton.js"></script>
+        <script async="async" type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within networkqit beta documentation"
+          href="../../_static/opensearch.xml"/>
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="networkqit.algorithms.optimize.ContinuousOptimizer" href="networkqit.algorithms.optimize.ContinuousOptimizer.html" />
+    <link rel="prev" title="Algorithms" href="../algorithms.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> networkqit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../infotheory.html">Information theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphtheory.html">Graph theory</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../algorithms.html">Algorithms</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../algorithms.html#module-networkqit.algorithms.optimize">Optimization methods</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">networkqit.algorithms.optimize.MLEOptimizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="networkqit.algorithms.optimize.ContinuousOptimizer.html">networkqit.algorithms.optimize.ContinuousOptimizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="networkqit.algorithms.optimize.StochasticOptimizer.html">networkqit.algorithms.optimize.StochasticOptimizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="networkqit.algorithms.optimize.Adam.html">networkqit.algorithms.optimize.Adam</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../algorithms.html#basinhopping-modified">Basinhopping modified</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algorithms.html#module-networkqit.algorithms.community">Community detection utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../citing.html">Citing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../citing.html#references">References</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">networkqit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../algorithms.html">Algorithms</a> &raquo;</li>
+        
+      <li>networkqit.algorithms.optimize.MLEOptimizer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="networkqit-algorithms-optimize-mleoptimizer">
+<h1>networkqit.algorithms.optimize.MLEOptimizer<a class="headerlink" href="#networkqit-algorithms-optimize-mleoptimizer" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="networkqit.algorithms.optimize.MLEOptimizer">
+<em class="property">class </em><code class="descname">MLEOptimizer</code><span class="sig-paren">(</span><em>G: autograd.numpy.numpy_wrapper.array</em>, <em>x0: autograd.numpy.numpy_wrapper.array</em>, <em>model: networkqit.graphtheory.models.GraphModel.GraphModel</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/networkqit/algorithms/optimize.html#MLEOptimizer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#networkqit.algorithms.optimize.MLEOptimizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class, inheriting from the model optimizer class solves the problem of 
+maximum likelihood parameters estimation in the classical settings.</p>
+<dl class="method">
+<dt id="networkqit.algorithms.optimize.MLEOptimizer.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>G: autograd.numpy.numpy_wrapper.array</em>, <em>x0: autograd.numpy.numpy_wrapper.array</em>, <em>model: networkqit.graphtheory.models.GraphModel.GraphModel</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/networkqit/algorithms/optimize.html#MLEOptimizer.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#networkqit.algorithms.optimize.MLEOptimizer.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the optimizer with the observed graph, an initial guess and the 
+model to optimize.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>G (numpy.array) :is the empirical network to study. A N x N adjacency matrix as numpy.array.
+x0 (numpy.array): is the k-element array of initial parameters estimates. Typically set as random.
+model (nq.GraphModel): the graph model to optimize the likelihood of.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#networkqit.algorithms.optimize.MLEOptimizer.__init__" title="networkqit.algorithms.optimize.MLEOptimizer.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(G, x0, model, **kwargs)</p></td>
+<td><p>Initialize the optimizer with the observed graph, an initial guess and the  model to optimize.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code>(method[, ftol, gtol, xtol, maxiter])</p></td>
+<td><p>Maximimize the likelihood of the model given the observed network G.</p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="networkqit.algorithms.optimize.ContinuousOptimizer.html" class="btn btn-neutral float-right" title="networkqit.algorithms.optimize.ContinuousOptimizer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../algorithms.html" class="btn btn-neutral float-left" title="Algorithms" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019, networkqit Developers
+      <span class="lastupdated">
+        Last updated on Apr 16, 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

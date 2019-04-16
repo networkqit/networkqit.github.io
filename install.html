@@ -13,45 +13,45 @@
 
   
   
-
+  
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
   
     
-      <link rel="search" type="application/opensearchdescription+xml" title="Search within networkqit beta documentation" href="_static/opensearch.xml"/>
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/copybutton.js"></script>
+        <script async="async" type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within networkqit beta documentation"
+          href="_static/opensearch.xml"/>
 
   
-
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="networkqit beta documentation" href="index.html"/>
-        <link rel="next" title="Tutorial" href="tutorial.html"/>
-        <link rel="prev" title="Overview" href="index.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tutorial" href="tutorial.html" />
+    <link rel="prev" title="Overview" href="index.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
+   
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -65,7 +65,7 @@
             
             
               <div class="version">
-                0.2
+                0.3
               </div>
             
           
@@ -86,7 +86,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Install</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#installation-from-the-pypi-repositories">Installation from the Pypi repositories</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#ubuntu">Ubuntu</a></li>
@@ -102,6 +105,7 @@
 <li class="toctree-l1"><a class="reference internal" href="reference/algorithms.html">Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="citing.html">Citing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citing.html#references">References</a></li>
 </ul>
 
             
@@ -113,32 +117,52 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="index.html">networkqit</a>
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">networkqit</a>
+        
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="index.html">Docs</a> &raquo;</li>
-      
-    <li>Install</li>
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Install</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -150,8 +174,8 @@
 have a Python environment configured on your computer, please see the
 instructions for installing the full <a class="reference external" href="https://scipy.org/install.html">scientific Python stack</a>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If you are on Windows and want to install optional packages (e.g., <code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy</span></code>),
+<p class="admonition-title">Note</p>
+<p>If you are on Windows and want to install optional packages (e.g., <code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy</span></code>),
 then you will need to install a Python distribution such as
 <a class="reference external" href="https://www.anaconda.com/download/">Anaconda</a>,
 <a class="reference external" href="https://www.enthought.com/product/canopy">Enthought Canopy</a>,
@@ -187,9 +211,9 @@ To install <strong>networkqit</strong> you just need to install <code class="xre
 <p>At the moment <strong>networkqit</strong> is in alpha stage and its API could change very fast.
 For this reason <strong>networkqit</strong> is still not available on <code class="xref py py-obj docutils literal notranslate"><span class="pre">pip</span></code>.
 However you can manually download <strong>networkqit</strong> from the repository:
-<a class="reference external" href="https://bitbucket.org/carlonicolini/networkqit/">Bitbucket</a></p>
+<a class="reference external" href="https://github.com/carlonicolini/networkqit/">Bitbucket</a></p>
 <p>If you have <a class="reference external" href="https://git-scm.com/">Git</a> installed on your system, do</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">bitbucket</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">carlonicolini</span><span class="o">/</span><span class="n">networkqit</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">carlonicolini</span><span class="o">/</span><span class="n">networkqit</span>
 <span class="n">cd</span> <span class="n">networkqit</span>
 <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
 </pre></div>
@@ -206,21 +230,21 @@ The package comes with its dependencies which get installed automatically.</p>
 <div class="section" id="optional-packages">
 <h2>Optional packages<a class="headerlink" href="#optional-packages" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Some optional packages (e.g., <code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">gdal</span></code>) may require compiling
+<p class="admonition-title">Note</p>
+<p>Some optional packages (e.g., <code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">gdal</span></code>) may require compiling
 C or C++ code.  If you have difficulty installing these packages
 with <code class="xref py py-obj docutils literal notranslate"><span class="pre">pip</span></code>, please review the instructions for installing
 the full <a class="reference external" href="https://scipy.org/install.html">scientific Python stack</a>.</p>
 </div>
 <p>The following optional packages provide additional functionalities, and are not necessary for the purely numerical calculations of spectral entropies.</p>
 <ul class="simple">
-<li><a class="reference external" href="http://pandas.pydata.org/">pandas</a> (&gt;= 0.20.0) provides a DataFrame, which
-is a tabular data structure with labeled axes.</li>
-<li><a class="reference external" href="http://matplotlib.org/">Matplotlib</a> (&gt;= 2.0.2) provides flexible drawing of
-graphs.</li>
-<li><a class="reference external" href="https://pypi.org/project/drawnow/">drawnow</a> (&gt;=0.72.0) is a MATLAB-like drawnow command to monitor the optimization process.</li>
-<li><a class="reference external" href="https://pypi.org/project/Numdifftools/">numdifftools</a> (&gt;=0.9.20) is a suite of tools written in _Python to solve automatic numerical differentiation problems in one or more variables. It can be necessary to exactly compute gradients of relative entropy.</li>
-<li><a class="reference external" href="https://pypi.org/project/seaborn/">seaborn</a> (&gt;=0.8.1) is a library for making attractive and informative statistical graphics in Python.</li>
+<li><p><a class="reference external" href="http://pandas.pydata.org/">pandas</a> (&gt;= 0.20.0) provides a DataFrame, which
+is a tabular data structure with labeled axes.</p></li>
+<li><p><a class="reference external" href="http://matplotlib.org/">Matplotlib</a> (&gt;= 2.0.2) provides flexible drawing of
+graphs.</p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/drawnow/">drawnow</a> (&gt;=0.72.0) is a MATLAB-like drawnow command to monitor the optimization process.</p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/Numdifftools/">numdifftools</a> (&gt;=0.9.20) is a suite of tools written in _Python to solve automatic numerical differentiation problems in one or more variables. It can be necessary to exactly compute gradients of relative entropy.</p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/seaborn/">seaborn</a> (&gt;=0.8.1) is a library for making attractive and informative statistical graphics in Python.</p></li>
 </ul>
 <p>To install <strong>networkqit</strong> and all optional packages, do:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">networkqit</span><span class="p">[</span><span class="nb">all</span><span class="p">]</span>
@@ -239,15 +263,16 @@ graphs.</li>
 
 
            </div>
+           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="tutorial.html" class="btn btn-neutral float-right" title="Tutorial" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="tutorial.html" class="btn btn-neutral float-right" title="Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="Overview" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -256,12 +281,14 @@ graphs.</li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017-2019, networkqit Developers.
-      Last updated on Jan 23, 2019.
+        &copy; Copyright 2017-2019, networkqit Developers
+      <span class="lastupdated">
+        Last updated on Apr 16, 2019.
+      </span>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -274,37 +301,15 @@ graphs.</li>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'beta',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  false
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="_static/copybutton.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

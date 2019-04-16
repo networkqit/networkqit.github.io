@@ -13,44 +13,44 @@
 
   
   
-
+  
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
   
     
-      <link rel="search" type="application/opensearchdescription+xml" title="Search within networkqit beta documentation" href="_static/opensearch.xml"/>
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/copybutton.js"></script>
+        <script async="async" type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within networkqit beta documentation"
+          href="_static/opensearch.xml"/>
 
   
-
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="networkqit beta documentation" href="#"/>
-        <link rel="next" title="Install" href="install.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Install" href="install.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
+   
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.2
+                0.3
               </div>
             
           
@@ -85,7 +85,10 @@
           
             
             
-                <ul>
+              
+            
+            
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference/infotheory.html">Information theory</a></li>
@@ -93,6 +96,7 @@
 <li class="toctree-l1"><a class="reference internal" href="reference/algorithms.html">Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="citing.html">Citing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citing.html#references">References</a></li>
 </ul>
 
             
@@ -104,32 +108,52 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="#">networkqit</a>
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">networkqit</a>
+        
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="#">Docs</a> &raquo;</li>
-      
-    <li>Overview</li>
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Overview</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -137,27 +161,57 @@
             
   <div class="section" id="overview">
 <span id="contents"></span><h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 20%" />
+<col style="width: 19%" />
+<col style="width: 43%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>Date</strong></p></td>
+<td><p><strong>Python Versions</strong></p></td>
+<td><p><strong>Main Author</strong></p></td>
+<td><p><strong>GitHub</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Apr 16, 2019</p></td>
+<td><p>3.5+</p></td>
+<td><p>Carlo Nicolini</p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">github.com/carlonicolini/networkqit</span></code></p></td>
+</tr>
+</tbody>
+</table>
 <p><strong>networkqit</strong> is a Python package for working within the spectral entropy framework of complex networks.
 However networkqit is of huge help also in developing, testing and using other Maximum Entropy network
 models, such as the Erdos-Renyi, Configuration model and other complex variants of them.</p>
 <p>The spectral entropies framework was firstly introduced in the paper:</p>
-<blockquote>
-<div>Spectral Entropies as Information-Theoretic Tools for Complex Network Comparison, Phys. Rev. X 6, 041062 (2016)</div></blockquote>
+<dl class="citation">
+<dt class="label" id="dedomenico2016"><span class="brackets">Dedomenico2016</span></dt>
+<dd><p>Dedomenico M., Biamonte J.
+Spectral Entropies as Information-Theoretic Tools for Complex Network Comparison
+Phys. Rev. X 6, 041062 (2016)</p>
+</dd>
+</dl>
 <p>This toolbox is among the first implementations of the spectral entropy framework.
 It entails both computation of the density matrices, as well as number of methods of model fitting methods.
 If you are using <strong>networkqit</strong> please cite the following paper:</p>
-<blockquote>
-<div>Nicolini C., Vlasov V. Bifone A. “Thermodynamics of network model fitting with spectral entropies”,
-Phys. Rev. E 98, 022322 (2018)</div></blockquote>
+<dl class="citation">
+<dt class="label" id="nicolini2018"><span class="brackets">Nicolini2018</span></dt>
+<dd><p>Nicolini C., Vlasov V. Bifone A.
+Thermodynamics of network model fitting with spectral entropies,
+Phys. Rev. E 98, 022322 (2018)</p>
+</dd>
+</dl>
 <p><strong>networkqit</strong> depends heavily on a number of math libraries, the typical scientific python stack.</p>
 <div class="section" id="installing">
 <h2>Installing<a class="headerlink" href="#installing" title="Permalink to this headline">¶</a></h2>
 <p><strong>networkqit</strong> is only available for Python 3 users.
 You can install the latest stable version of networkqit with pip:</p>
-<blockquote>
-<div>pip3 install networkqit</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="n">networkqit</span>
+</pre></div>
+</div>
 <p>All the dependencies of <strong>networkqit</strong> are installed automatically.
-Follow the <span class="xref std std-doc">&lt;/install&gt;</span> instructions for further information.</p>
+Follow the install instructions for further information.</p>
 </div>
 <div class="section" id="documentation">
 <h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
@@ -180,17 +234,39 @@ Follow the <span class="xref std std-doc">&lt;/install&gt;</span> instructions f
 <li class="toctree-l2"><a class="reference internal" href="tutorial.html#stochastic-optimization-of-spectral-entropy">Stochastic optimization of spectral entropy</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="reference/infotheory.html">Information theory</a><ul class="simple">
+<li class="toctree-l1"><a class="reference internal" href="reference/infotheory.html">Information theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/graphtheory.html">Graph theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/algorithms.html">Algorithms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference/algorithms.html#module-networkqit.algorithms.optimize">Optimization methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reference/generated/networkqit.algorithms.optimize.MLEOptimizer.html">networkqit.algorithms.optimize.MLEOptimizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/generated/networkqit.algorithms.optimize.ContinuousOptimizer.html">networkqit.algorithms.optimize.ContinuousOptimizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/generated/networkqit.algorithms.optimize.StochasticOptimizer.html">networkqit.algorithms.optimize.StochasticOptimizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/generated/networkqit.algorithms.optimize.Adam.html">networkqit.algorithms.optimize.Adam</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="reference/graphtheory.html">Graph theory</a><ul class="simple">
+<li class="toctree-l2"><a class="reference internal" href="reference/algorithms.html#module-networkqit.algorithms.basinhoppingmod">Basinhopping modified</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reference/generated/networkqit.algorithms.basinhoppingmod.Storage.html">networkqit.algorithms.basinhoppingmod.Storage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/generated/networkqit.algorithms.basinhoppingmod.BasinHoppingRunner.html">networkqit.algorithms.basinhoppingmod.BasinHoppingRunner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/generated/networkqit.algorithms.basinhoppingmod.AdaptiveStepsize.html">networkqit.algorithms.basinhoppingmod.AdaptiveStepsize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/generated/networkqit.algorithms.basinhoppingmod.RandomDisplacement.html">networkqit.algorithms.basinhoppingmod.RandomDisplacement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/generated/networkqit.algorithms.basinhoppingmod.MinimizerWrapper.html">networkqit.algorithms.basinhoppingmod.MinimizerWrapper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/generated/networkqit.algorithms.basinhoppingmod.Metropolis.html">networkqit.algorithms.basinhoppingmod.Metropolis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/generated/networkqit.algorithms.basinhoppingmod.BHBounds.html">networkqit.algorithms.basinhoppingmod.BHBounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/generated/networkqit.algorithms.basinhoppingmod.BHRandStepBounded.html">networkqit.algorithms.basinhoppingmod.BHRandStepBounded</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="reference/algorithms.html">Algorithms</a><ul class="simple">
+<li class="toctree-l2"><a class="reference internal" href="reference/algorithms.html#module-networkqit.algorithms.community">Community detection utilities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reference/generated/networkqit.algorithms.community.comm_mat.html">networkqit.algorithms.community.comm_mat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/generated/networkqit.algorithms.community.comm_assortativity.html">networkqit.algorithms.community.comm_assortativity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/generated/networkqit.algorithms.community.reindex_membership.html">networkqit.algorithms.community.reindex_membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/generated/networkqit.algorithms.community.reassign_singletons.html">networkqit.algorithms.community.reassign_singletons</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="citing.html">Citing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citing.html#references">References</a></li>
 </ul>
 </div>
 <span class="target" id="module-networkqit"></span></div>
@@ -199,18 +275,19 @@ Follow the <span class="xref std std-doc">&lt;/install&gt;</span> instructions f
 <p><strong>networkqit</strong> is free software; you can redistribute it and/or modify it under
 the terms of the <a class="reference internal" href="license.html"><span class="doc">3-clause BSD License</span></a>.
 I appreciate and welcome contributions to the code.
-Join me on <a class="reference external" href="https://bitbucket.org/carlonicolini/networkqit">Bitbucket</a>.</p>
+Join me on <a class="reference external" href="https://github.com/carlonicolini/networkqit">Bitbucket</a>.</p>
 </div>
 </div>
 
 
            </div>
+           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="install.html" class="btn btn-neutral float-right" title="Install" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="install.html" class="btn btn-neutral float-right" title="Install" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>
@@ -220,12 +297,14 @@ Join me on <a class="reference external" href="https://bitbucket.org/carlonicoli
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017-2019, networkqit Developers.
-      Last updated on Feb 19, 2019.
+        &copy; Copyright 2017-2019, networkqit Developers
+      <span class="lastupdated">
+        Last updated on Apr 16, 2019.
+      </span>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -238,37 +317,15 @@ Join me on <a class="reference external" href="https://bitbucket.org/carlonicoli
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'beta',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  false
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="_static/copybutton.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

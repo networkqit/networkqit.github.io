@@ -13,45 +13,45 @@
 
   
   
-
+  
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
   
     
-      <link rel="search" type="application/opensearchdescription+xml" title="Search within networkqit beta documentation" href="_static/opensearch.xml"/>
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/copybutton.js"></script>
+        <script async="async" type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within networkqit beta documentation"
+          href="_static/opensearch.xml"/>
 
   
-
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="networkqit beta documentation" href="index.html"/>
-        <link rel="next" title="Information theory" href="reference/infotheory.html"/>
-        <link rel="prev" title="Install" href="install.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Information theory" href="reference/infotheory.html" />
+    <link rel="prev" title="Install" href="install.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
+   
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -65,7 +65,7 @@
             
             
               <div class="version">
-                0.2
+                0.3
               </div>
             
           
@@ -86,7 +86,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">Install</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#computing-the-spectral-entropy-of-a-network">Computing the spectral entropy of a network</a></li>
@@ -100,6 +103,7 @@
 <li class="toctree-l1"><a class="reference internal" href="reference/algorithms.html">Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="citing.html">Citing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citing.html#references">References</a></li>
 </ul>
 
             
@@ -111,32 +115,52 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="index.html">networkqit</a>
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">networkqit</a>
+        
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="index.html">Docs</a> &raquo;</li>
-      
-    <li>Tutorial</li>
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Tutorial</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -145,7 +169,7 @@
   <div class="section" id="tutorial">
 <h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
 <p>This guide can help you start working with networkqit.
-In this first tutorial we show how to compute the spectral entropy of a small graph over a large range of <span class="math notranslate">\(\beta\)</span>
+In this first tutorial we show how to compute the spectral entropy of a small graph over a large range of <span class="math notranslate nohighlight">\(\beta\)</span>
 parameter.</p>
 <div class="section" id="computing-the-spectral-entropy-of-a-network">
 <h2>Computing the spectral entropy of a network<a class="headerlink" href="#computing-the-spectral-entropy-of-a-network" title="Permalink to this headline">¶</a></h2>
@@ -159,7 +183,7 @@ This example shows how to generate the spectral entropy plots shown in our main 
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">beta_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Sbeta</span> <span class="o">=</span> <span class="n">nq</span><span class="o">.</span><span class="n">batch_compute_vonneumann_entropy</span><span class="p">(</span><span class="n">L</span><span class="o">=</span><span class="n">nq</span><span class="o">.</span><span class="n">graph_laplacian</span><span class="p">(</span><span class="n">A</span><span class="p">),</span><span class="n">beta_range</span><span class="o">=</span><span class="n">beta_range</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Sbeta</span> <span class="o">=</span> <span class="n">nq</span><span class="o">.</span><span class="n">entropy</span><span class="p">(</span><span class="n">L</span><span class="o">=</span><span class="n">nq</span><span class="o">.</span><span class="n">graph_laplacian</span><span class="p">(</span><span class="n">A</span><span class="p">),</span> <span class="n">beta_range</span><span class="o">=</span><span class="n">beta_range</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">beta_range</span><span class="p">,</span> <span class="n">Sbeta</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">beta$&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$S$&#39;</span><span class="p">)</span>
@@ -167,15 +191,16 @@ This example shows how to generate the spectral entropy plots shown in our main 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>The spectral entropy is always in the range <span class="math notranslate">\([0,\log N]\)</span>, so if we simply divide by <span class="math notranslate">\(\log N\)</span> where <span class="math notranslate">\(N\)</span> is the number
-of nodes, we renormalize it in the <span class="math notranslate">\([0,1]\)</span> range.</p>
+<p>The spectral entropy is always in the range <span class="math notranslate nohighlight">\([0,\log N]\)</span>, so if we simply divide by <span class="math notranslate nohighlight">\(\log N\)</span> where <span class="math notranslate nohighlight">\(N\)</span> is the number
+of nodes, we renormalize it in the <span class="math notranslate nohighlight">\([0,1]\)</span> range.</p>
 </div>
 <div class="section" id="generative-network-models">
 <h2>Generative network models<a class="headerlink" href="#generative-network-models" title="Permalink to this headline">¶</a></h2>
 <p><strong>networkqit</strong> features a large number of network models, mainly those obtained from within the Maximum Entropy
-framework. You can create a number of models and call methods on them by a consistent nomenclature:
+framework, and some other models from brain networks connectivity.
+You can create a number of models and call methods on them by a consistent nomenclature.
 Here we create an instance of the Undirected Binary Configuration model (UBCM), and sample 10 random networks from this
-ensemble, based on the fitness parameters .. :math: x_i created at  random in the [0,1] domain.</p>
+ensemble, based on the fitness parameters <span class="math notranslate nohighlight">\(x_i\)</span> created at  random in the <span class="math notranslate nohighlight">\(\lbrack 0,1 \rbrack\)</span> domain.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">networkqit</span> <span class="k">as</span> <span class="nn">nq</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">N</span><span class="o">=</span><span class="mi">10</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">nq</span><span class="o">.</span><span class="n">UBCM</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
@@ -184,8 +209,8 @@ ensemble, based on the fitness parameters .. :math: x_i created at  random in th
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">adj_graphs</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The call returns a [5,N,N] numpy array, where the last two dimensions embed with the adjacency matrix of the 5 random graphs.
-The method <code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_adjacency</span></code> is available for every generative model implemented in <strong>networkqit</strong> and is at the base  of the <em>maximize and sample</em> approach used for the optimization of the spectral entropy.</p>
+<p>The call returns a <code class="xref py py-obj docutils literal notranslate"><span class="pre">[5,N,N]</span></code> numpy array, where the last two dimensions embed with the adjacency matrix of the <span class="math notranslate nohighlight">\(5\)</span> random graphs.
+The method <code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_adjacency</span></code> is available for every generative model implemented in <strong>networkqit</strong> and is at the base of the <em>maximize and sample</em> approach used for the optimization of the spectral entropy.</p>
 </div>
 <div class="section" id="model-optimization">
 <h2>Model optimization<a class="headerlink" href="#model-optimization" title="Permalink to this headline">¶</a></h2>
@@ -193,7 +218,7 @@ The method <code class="xref py py-obj docutils literal notranslate"><span class
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">algorithms</span></code> package.</p>
 <p>The following lines describe an example describing optimization of the expected laplacian model.
 We first create the object ErdosRenyi that describes the expected laplacian, adjacency and laplacian gradient with
-respect to the only continuous parameters <span class="math notranslate">\(p\)</span>.</p>
+respect to the only continuous parameters <span class="math notranslate nohighlight">\(p\)</span>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">networkqit</span> <span class="k">as</span> <span class="nn">nq</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -208,8 +233,11 @@ respect to the only continuous parameters <span class="math notranslate">\(p\)</
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">ermodel</span><span class="p">([</span><span class="mf">0.5</span><span class="p">]))</span>
 </pre></div>
 </div>
-<p>This returns the expected adjacency matrix, a 34x34 matrix with 0.5 off diagonal and 0 on diagonal.
-The <code class="xref py py-obj docutils literal notranslate"><span class="pre">ermodel</span></code> also allows to call methods like the expected laplacian or the expected laplacian gradient.</p>
+<p>This returns the expected adjacency matrix, a <code class="xref py py-obj docutils literal notranslate"><span class="pre">34x34</span></code> matrix with <code class="xref py py-obj docutils literal notranslate"><span class="pre">0.5</span></code> off diagonal and <code class="xref py py-obj docutils literal notranslate"><span class="pre">0</span></code> on diagonal.
+Alternatively, any model inherited from <code class="xref py py-obj docutils literal notranslate"><span class="pre">GraphModel</span></code> such as our <code class="xref py py-obj docutils literal notranslate"><span class="pre">ermodel</span></code> instance,</p>
+<blockquote>
+<div><p>also allows to call methods like the expected laplacian or the expected laplacian gradient.</p>
+</div></blockquote>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">ermodel</span><span class="o">.</span><span class="n">expected_laplacian_grad</span><span class="p">([</span><span class="mf">0.5</span><span class="p">]))</span>
 </pre></div>
 </div>
@@ -229,14 +257,28 @@ Finally the <code class="xref py py-obj docutils literal notranslate"><span clas
 </div>
 <div class="section" id="stochastic-optimization-of-spectral-entropy">
 <h2>Stochastic optimization of spectral entropy<a class="headerlink" href="#stochastic-optimization-of-spectral-entropy" title="Permalink to this headline">¶</a></h2>
-<p>Most of the models do not allow an analytical treatment of their spectral likelihood. This involves knowing exact analytical formulations of the laplacian eigenvalues spectral density and this is still an unsolved problem for most of the useful network models.
+<p>Most of the models do not allow an analytical treatment of their spectral likelihood.
+We may also want to see the effects of sparse structure on the eigenvalue spectrum of model laplacian, instead of working
+in the dense networks limit, as in the previous example.
+This involves knowing exact analytical formulations of the laplacian eigenvalues spectral density and this is still an unsolved problem for most of the useful network models.
 To perform spectral likelihood optimization we can do stochastic optimization and find the parameters of the empirical graph such that the expected relative entropy averaged over the model ensemble
 is minimized.
 Doing this in <strong>networkqit</strong> is simple, as the library relies on the <code class="xref py py-obj docutils literal notranslate"><span class="pre">autograd</span></code> package for the automatic calculation of complicated gradients of stochastic functions.</p>
 <p>With the optimization method <code class="xref py py-obj docutils literal notranslate"><span class="pre">Adam</span></code> which is borrowed from machine learning, we can optimize the expected relative entropy of the Erdos-Renyi model with respect to our model karate-club network,represented by <strong>A</strong> and see the effects of changing the inverse temperature parameter <code class="xref py py-obj docutils literal notranslate"><span class="pre">beta</span></code> on the optimization process.</p>
 <p>At every iteration, a number of random networks (batch_size) are sampled from the model, and their average spectral properties are used to compute an approximation to the expected relative entropy.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">solver</span> <span class="o">=</span> <span class="n">opt</span> <span class="o">=</span> <span class="n">Adam</span><span class="p">(</span><span class="n">A</span><span class="o">=</span><span class="n">A</span><span class="p">,</span> <span class="n">L</span><span class="o">=</span><span class="n">L</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="n">x0</span><span class="p">,</span> <span class="n">beta_range</span><span class="o">=</span><span class="n">beta_range</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">ermodel</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sol</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">refresh_frames</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">eta</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">max_iters</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">gtol</span><span class="o">=</span><span class="mf">1E-5</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">networkqit</span> <span class="k">as</span> <span class="nn">nq</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">nq</span><span class="o">.</span><span class="n">ring_of_custom_cliques</span><span class="p">([</span><span class="mi">24</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">nq</span><span class="o">.</span><span class="n">IsingModel</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="p">(</span><span class="n">N</span><span class="o">*</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="n">nq</span><span class="o">.</span><span class="n">graph_laplacian</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">beta</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">opt</span> <span class="o">=</span> <span class="n">Adam</span><span class="p">(</span><span class="n">G</span><span class="o">=</span><span class="n">A</span><span class="p">,</span> <span class="n">L</span><span class="o">=</span><span class="n">L</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">([</span><span class="n">N</span><span class="o">*</span><span class="n">N</span><span class="p">,]),</span> <span class="n">model</span><span class="o">=</span><span class="n">M</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rho</span> <span class="o">=</span> <span class="n">nq</span><span class="o">.</span><span class="n">compute_vonneuman_density</span><span class="p">(</span><span class="n">L</span><span class="o">=</span><span class="n">L</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="n">beta</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">rep</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>      <span class="n">sol</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1E-3</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span>      <span class="n">nq</span><span class="o">.</span><span class="n">plot_mle</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">M</span><span class="o">.</span><span class="n">expected_adjacency</span><span class="p">(</span><span class="n">sol</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span>      <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -244,15 +286,16 @@ Doing this in <strong>networkqit</strong> is simple, as the library relies on th
 
 
            </div>
+           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="reference/infotheory.html" class="btn btn-neutral float-right" title="Information theory" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="reference/infotheory.html" class="btn btn-neutral float-right" title="Information theory" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="install.html" class="btn btn-neutral" title="Install" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="install.html" class="btn btn-neutral float-left" title="Install" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -261,12 +304,14 @@ Doing this in <strong>networkqit</strong> is simple, as the library relies on th
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017-2019, networkqit Developers.
-      Last updated on Jan 23, 2019.
+        &copy; Copyright 2017-2019, networkqit Developers
+      <span class="lastupdated">
+        Last updated on Apr 16, 2019.
+      </span>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -279,37 +324,15 @@ Doing this in <strong>networkqit</strong> is simple, as the library relies on th
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'beta',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  false
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="_static/copybutton.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

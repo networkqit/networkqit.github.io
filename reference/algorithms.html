@@ -13,43 +13,45 @@
 
   
   
-
+  
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
   
     
-      <link rel="search" type="application/opensearchdescription+xml" title="Search within networkqit beta documentation" href="../_static/opensearch.xml"/>
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/copybutton.js"></script>
+        <script async="async" type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within networkqit beta documentation"
+          href="../_static/opensearch.xml"/>
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="networkqit beta documentation" href="../index.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="networkqit.algorithms.optimize.MLEOptimizer" href="generated/networkqit.algorithms.optimize.MLEOptimizer.html" />
+    <link rel="prev" title="Graph theory" href="graphtheory.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
+   
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -63,7 +65,7 @@
             
             
               <div class="version">
-                0.2
+                0.3
               </div>
             
           
@@ -84,16 +86,45 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="infotheory.html">Information theory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="graphtheory.html">Graph theory</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Algorithms</a><ul class="simple">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Algorithms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-networkqit.algorithms.optimize">Optimization methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/networkqit.algorithms.optimize.MLEOptimizer.html">networkqit.algorithms.optimize.MLEOptimizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/networkqit.algorithms.optimize.ContinuousOptimizer.html">networkqit.algorithms.optimize.ContinuousOptimizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/networkqit.algorithms.optimize.StochasticOptimizer.html">networkqit.algorithms.optimize.StochasticOptimizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/networkqit.algorithms.optimize.Adam.html">networkqit.algorithms.optimize.Adam</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-networkqit.algorithms.basinhoppingmod">Basinhopping modified</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/networkqit.algorithms.basinhoppingmod.Storage.html">networkqit.algorithms.basinhoppingmod.Storage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/networkqit.algorithms.basinhoppingmod.BasinHoppingRunner.html">networkqit.algorithms.basinhoppingmod.BasinHoppingRunner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/networkqit.algorithms.basinhoppingmod.AdaptiveStepsize.html">networkqit.algorithms.basinhoppingmod.AdaptiveStepsize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/networkqit.algorithms.basinhoppingmod.RandomDisplacement.html">networkqit.algorithms.basinhoppingmod.RandomDisplacement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/networkqit.algorithms.basinhoppingmod.MinimizerWrapper.html">networkqit.algorithms.basinhoppingmod.MinimizerWrapper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/networkqit.algorithms.basinhoppingmod.Metropolis.html">networkqit.algorithms.basinhoppingmod.Metropolis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/networkqit.algorithms.basinhoppingmod.BHBounds.html">networkqit.algorithms.basinhoppingmod.BHBounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/networkqit.algorithms.basinhoppingmod.BHRandStepBounded.html">networkqit.algorithms.basinhoppingmod.BHRandStepBounded</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-networkqit.algorithms.community">Community detection utilities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/networkqit.algorithms.community.comm_mat.html">networkqit.algorithms.community.comm_mat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/networkqit.algorithms.community.comm_assortativity.html">networkqit.algorithms.community.comm_assortativity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/networkqit.algorithms.community.reindex_membership.html">networkqit.algorithms.community.reindex_membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/networkqit.algorithms.community.reassign_singletons.html">networkqit.algorithms.community.reassign_singletons</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../citing.html#references">References</a></li>
 </ul>
 
             
@@ -105,32 +136,52 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">networkqit</a>
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">networkqit</a>
+        
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-      
-    <li>Algorithms</li>
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Algorithms</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -140,41 +191,148 @@
 <span id="id1"></span><h1>Algorithms<a class="headerlink" href="#algorithms" title="Permalink to this headline">¶</a></h1>
 <p>This submodule contains definition of various algorithms applied to the spectral entropy framework.
 They are mostly based on optimization algorithms for model fitting.</p>
-<table border="1" class="longtable docutils">
+<span class="target" id="module-networkqit.algorithms"></span><div class="section" id="module-networkqit.algorithms.optimize">
+<span id="optimization-methods"></span><h2>Optimization methods<a class="headerlink" href="#module-networkqit.algorithms.optimize" title="Permalink to this headline">¶</a></h2>
+<p>Define the base and inherited classes for model optimization, both in the continuous approximation
+and for the stochastic optimization.</p>
+<p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">ModelOptimizer</span></code> class defines the base class where all the other optimization classes must inherit.
+The most important class to optimize an expected adjacency model is <a class="reference internal" href="generated/networkqit.algorithms.optimize.ContinuousOptimizer.html#networkqit.algorithms.optimize.ContinuousOptimizer" title="networkqit.algorithms.optimize.ContinuousOptimizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ContinuousOptimizer</span></code></a>.
+In this class the gradients are defined as:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial S(\boldsymbol \rho \| \boldsymbol \sigma(\mathbb{E}_{\boldsymbol \theta}[\mathbf{L}]))}{\partial \boldsymbol \theta_k} = \beta \textrm{Tr}\biggl \lbrack \left(\boldsymbol \rho - \boldsymbol \sigma(\mathbb{E}_{\boldsymbol \theta}[L])\right)\frac{\partial \mathbb{E}_{\boldsymbol \theta}[\mathbf{L}]}{\partial \theta_k} \biggr \rbrack\]</div>
+<p>In the <a class="reference internal" href="generated/networkqit.algorithms.optimize.StochasticOptimizer.html#networkqit.algorithms.optimize.StochasticOptimizer" title="networkqit.algorithms.optimize.StochasticOptimizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StochasticOptimizer</span></code></a> class we instead address the issue to implement stochastic gradient descent methods.
+In these methods the gradients are defined as:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial \mathbb{E}_{\boldsymbol \theta}[S(\boldsymbol \rho \| \boldsymbol \sigma)]}{\partial \theta_k} = \beta \textrm{Tr}\biggl \lbrack \boldsymbol \rho \frac{\partial  \mathbb{E}_{\boldsymbol \theta}[L]}{\partial \boldsymbol \theta_k}\biggr \rbrack + \frac{\partial}{\partial \theta_k}\mathbb{E}_{\boldsymbol \theta}\biggl \lbrack \log \left( \textrm{Tr}\left \lbrack e^{-\beta L(\boldsymbol \theta)} \right \rbrack \right) \biggr \rbrack\]</div>
+<p>The stochastic optimizer is the <strong>correct</strong> optimizer, as it makes no approximation on the Laplacian eigenvalues.
+It is more suitable for small graphs and intermediate <span class="math notranslate nohighlight">\(\beta\)</span>, where the differences between the random matrix s
+pectrum and its expected counterpart are non-neglibile.
+For large and dense enough graphs however the <a class="reference internal" href="generated/networkqit.algorithms.optimize.ContinuousOptimizer.html#networkqit.algorithms.optimize.ContinuousOptimizer" title="networkqit.algorithms.optimize.ContinuousOptimizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ContinuousOptimizer</span></code></a> works well and yields deterministic results,
+as the optimization landscape is smooth.</p>
+<p>In order to minimize the expected relative entropy then, we need both the expected Laplacian formula, which is simple
+to get, and a way to estimate the second summand in the gradient, that involves averaging over different realizations
+of the log trace of  <span class="math notranslate nohighlight">\(e^{-\beta L(\boldsymbol \theta)}\)</span>.
+A good the approximation to the expected logtrace <span class="math notranslate nohighlight">\(\mathbb{E}_{\boldsymbol \theta}[\log \textrm{Tr}[\exp{(-\beta L)}]]\)</span> is,
+makes a better is the estimate of the gradients.</p>
+<p>Finally, the <a class="reference internal" href="generated/networkqit.algorithms.optimize.MLEOptimizer.html#networkqit.algorithms.optimize.MLEOptimizer" title="networkqit.algorithms.optimize.MLEOptimizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MLEOptimizer</span></code></a> maximizes the standard likelihood of a model and it is not related to the spectral entropies
+framework introduced in the paper on which <strong>networkqit</strong> is based.</p>
+<table class="longtable docutils align-center">
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">optimize</span></code></td>
-<td></td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/networkqit.algorithms.optimize.MLEOptimizer.html#networkqit.algorithms.optimize.MLEOptimizer" title="networkqit.algorithms.optimize.MLEOptimizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MLEOptimizer</span></code></a>(G, x0, model, **kwargs)</p></td>
+<td><p>This class, inheriting from the model optimizer class solves the problem of  maximum likelihood parameters estimation in the classical settings.</p></td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">community</span></code></td>
-<td>This package implements community detection.</td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/networkqit.algorithms.optimize.ContinuousOptimizer.html#networkqit.algorithms.optimize.ContinuousOptimizer" title="networkqit.algorithms.optimize.ContinuousOptimizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ContinuousOptimizer</span></code></a>(A, x0, beta_range, …)</p></td>
+<td><p>Continuos optimization method of spectral entropy in the continuous approximation S(rho, sigma(E[L])))</p></td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">basinhoppingmod</span></code></td>
-<td></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/networkqit.algorithms.optimize.StochasticOptimizer.html#networkqit.algorithms.optimize.StochasticOptimizer" title="networkqit.algorithms.optimize.StochasticOptimizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StochasticOptimizer</span></code></a>(G, x0, model, **kwargs)</p></td>
+<td><p>This class is at the base of implementation of methods based on stochastic gradient descent.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/networkqit.algorithms.optimize.Adam.html#networkqit.algorithms.optimize.Adam" title="networkqit.algorithms.optimize.Adam"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Adam</span></code></a>(G, x0, model, **kwargs)</p></td>
+<td><p>Implements the ADAM stochastic gradient descent.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
+<div class="section" id="module-networkqit.algorithms.basinhoppingmod">
+<span id="basinhopping-modified"></span><h2>Basinhopping modified<a class="headerlink" href="#module-networkqit.algorithms.basinhoppingmod" title="Permalink to this headline">¶</a></h2>
+<p>The basinhopping global optimization algorithm with modifications 
+to work within the spectral entropies framework.
+The modification are very small compared to the original implementation 
+of basinhopping from scipy, but necessary to work with problems with a number
+of local minima and fitting classical maximum entropy models with highly
+non-linear saddle-point equations.</p>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/networkqit.algorithms.basinhoppingmod.Storage.html#networkqit.algorithms.basinhoppingmod.Storage" title="networkqit.algorithms.basinhoppingmod.Storage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Storage</span></code></a>(minres)</p></td>
+<td><p>Class used to store the lowest energy structure</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/networkqit.algorithms.basinhoppingmod.BasinHoppingRunner.html#networkqit.algorithms.basinhoppingmod.BasinHoppingRunner" title="networkqit.algorithms.basinhoppingmod.BasinHoppingRunner"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BasinHoppingRunner</span></code></a>(x0, minimizer, …[, disp])</p></td>
+<td><p>This class implements the core of the basinhopping algorithm.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/networkqit.algorithms.basinhoppingmod.AdaptiveStepsize.html#networkqit.algorithms.basinhoppingmod.AdaptiveStepsize" title="networkqit.algorithms.basinhoppingmod.AdaptiveStepsize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AdaptiveStepsize</span></code></a>(takestep[, accept_rate, …])</p></td>
+<td><p>Class to implement adaptive stepsize.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/networkqit.algorithms.basinhoppingmod.RandomDisplacement.html#networkqit.algorithms.basinhoppingmod.RandomDisplacement" title="networkqit.algorithms.basinhoppingmod.RandomDisplacement"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RandomDisplacement</span></code></a>([stepsize, random_state])</p></td>
+<td><p>Add a random displacement of maximum size <code class="xref py py-obj docutils literal notranslate"><span class="pre">stepsize</span></code> to each coordinate</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/networkqit.algorithms.basinhoppingmod.MinimizerWrapper.html#networkqit.algorithms.basinhoppingmod.MinimizerWrapper" title="networkqit.algorithms.basinhoppingmod.MinimizerWrapper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MinimizerWrapper</span></code></a>(minimizer[, func])</p></td>
+<td><p>wrap a minimizer function as a minimizer class</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/networkqit.algorithms.basinhoppingmod.Metropolis.html#networkqit.algorithms.basinhoppingmod.Metropolis" title="networkqit.algorithms.basinhoppingmod.Metropolis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Metropolis</span></code></a>(T[, random_state])</p></td>
+<td><p>Metropolis acceptance criterion</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/networkqit.algorithms.basinhoppingmod.BHBounds.html#networkqit.algorithms.basinhoppingmod.BHBounds" title="networkqit.algorithms.basinhoppingmod.BHBounds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BHBounds</span></code></a>(xmin, xmax)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/networkqit.algorithms.basinhoppingmod.BHRandStepBounded.html#networkqit.algorithms.basinhoppingmod.BHRandStepBounded" title="networkqit.algorithms.basinhoppingmod.BHRandStepBounded"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BHRandStepBounded</span></code></a>(xmin, xmax[, stepsize])</p></td>
+<td><p>Bounded random displacement:  see: <a class="reference external" href="https://stackoverflow.com/a/21967888/2320035">https://stackoverflow.com/a/21967888/2320035</a> Modified! (dropped acceptance-rejection sampling for a more specialized approach)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="module-networkqit.algorithms.community">
+<span id="community-detection-utilities"></span><h2>Community detection utilities<a class="headerlink" href="#module-networkqit.algorithms.community" title="Permalink to this headline">¶</a></h2>
+<p>Here a number of community detection utilities are implemented for the manipulation
+of membership vectors, as well as for the detection of block structures in networks.</p>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/networkqit.algorithms.community.comm_mat.html#networkqit.algorithms.community.comm_mat" title="networkqit.algorithms.community.comm_mat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">comm_mat</span></code></a>(adj, memb)</p></td>
+<td><p>Returns multiple community related quantities.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/networkqit.algorithms.community.comm_assortativity.html#networkqit.algorithms.community.comm_assortativity" title="networkqit.algorithms.community.comm_assortativity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">comm_assortativity</span></code></a>(A, memb)</p></td>
+<td><p>This function computes the modular group assortativity and the newman modularity as from Eq.18-19 of the Peixoto paper “Nonparametric weighted stochastic block models” <a class="reference external" href="https://arxiv.org/pdf/1708.01432.pdf">https://arxiv.org/pdf/1708.01432.pdf</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/networkqit.algorithms.community.reindex_membership.html#networkqit.algorithms.community.reindex_membership" title="networkqit.algorithms.community.reindex_membership"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reindex_membership</span></code></a>(memb[, key, …])</p></td>
+<td><p>This function has the membership as input and output the membership where the communities number are ordered by the number of nodes in that community</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/networkqit.algorithms.community.reassign_singletons.html#networkqit.algorithms.community.reassign_singletons" title="networkqit.algorithms.community.reassign_singletons"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reassign_singletons</span></code></a>(memb)</p></td>
+<td><p>Set all the singleton communities into the same community.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 
 
            </div>
+           
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="generated/networkqit.algorithms.optimize.MLEOptimizer.html" class="btn btn-neutral float-right" title="networkqit.algorithms.optimize.MLEOptimizer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="graphtheory.html" class="btn btn-neutral float-left" title="Graph theory" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017-2019, networkqit Developers.
-      Last updated on Feb 19, 2019.
+        &copy; Copyright 2017-2019, networkqit Developers
+      <span class="lastupdated">
+        Last updated on Apr 16, 2019.
+      </span>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -187,37 +345,15 @@ They are mostly based on optimization algorithms for model fitting.</p>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'beta',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  false
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/copybutton.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

@@ -1,0 +1,966 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>networkqit.algorithms.basinhoppingmod &mdash; networkqit beta documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../_static/copybutton.js"></script>
+        <script async="async" type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within networkqit beta documentation"
+          href="../../../_static/opensearch.xml"/>
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> networkqit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/infotheory.html">Information theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/graphtheory.html">Graph theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/algorithms.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../citing.html">Citing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../citing.html#references">References</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">networkqit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>networkqit.algorithms.basinhoppingmod</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for networkqit.algorithms.basinhoppingmod</h1><div class="highlight"><pre>
+<span></span><span class="ch">#! /usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1">#</span>
+<span class="c1"># networkqit -- a python module for manipulations of spectral entropies framework</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (C) 2017-2018 Carlo Nicolini &lt;carlo.nicolini@iit.it&gt;</span>
+<span class="c1">#</span>
+<span class="c1"># This program is free software: you can redistribute it and/or modify</span>
+<span class="c1"># it under the terms of the GNU General Public License as published by</span>
+<span class="c1"># the Free Software Foundation, either version 3 of the License, or</span>
+<span class="c1"># (at your option) any later version.</span>
+<span class="c1">#</span>
+<span class="c1"># This program is distributed in the hope that it will be useful,</span>
+<span class="c1"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1"># GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1"># You should have received a copy of the GNU General Public License</span>
+<span class="c1"># along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">The basinhopping global optimization algorithm with modifications </span>
+<span class="sd">to work within the spectral entropies framework.</span>
+<span class="sd">The modification are very small compared to the original implementation </span>
+<span class="sd">of basinhopping from scipy, but necessary to work with problems with a number</span>
+<span class="sd">of local minima and fitting classical maximum entropy models with highly</span>
+<span class="sd">non-linear saddle-point equations.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span> <span class="n">absolute_import</span>
+
+<span class="kn">import</span> <span class="nn">autograd.numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">cos</span><span class="p">,</span> <span class="n">sin</span>
+<span class="kn">import</span> <span class="nn">scipy.optimize</span>
+<span class="kn">import</span> <span class="nn">collections</span>
+<span class="kn">from</span> <span class="nn">scipy._lib._util</span> <span class="k">import</span> <span class="n">check_random_state</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;basinhopping&#39;</span><span class="p">,</span><span class="s1">&#39;BHBounds&#39;</span><span class="p">,</span><span class="s1">&#39;BHRandStepBounded&#39;</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="Storage"><a class="viewcode-back" href="../../../reference/generated/networkqit.algorithms.basinhoppingmod.Storage.html#networkqit.algorithms.basinhoppingmod.Storage">[docs]</a><span class="k">class</span> <span class="nc">Storage</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class used to store the lowest energy structure</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Storage.__init__"><a class="viewcode-back" href="../../../reference/generated/networkqit.algorithms.basinhoppingmod.Storage.html#networkqit.algorithms.basinhoppingmod.Storage.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">minres</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_add</span><span class="p">(</span><span class="n">minres</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">minres</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">minres</span> <span class="o">=</span> <span class="n">minres</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">minres</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">minres</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">minres</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">minres</span><span class="o">.</span><span class="n">fun</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">minres</span><span class="o">.</span><span class="n">fun</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_add</span><span class="p">(</span><span class="n">minres</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">get_lowest</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">minres</span></div>
+
+
+<div class="viewcode-block" id="BasinHoppingRunner"><a class="viewcode-back" href="../../../reference/generated/networkqit.algorithms.basinhoppingmod.BasinHoppingRunner.html#networkqit.algorithms.basinhoppingmod.BasinHoppingRunner">[docs]</a><span class="k">class</span> <span class="nc">BasinHoppingRunner</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This class implements the core of the basinhopping algorithm.</span>
+
+<span class="sd">    x0 : ndarray</span>
+<span class="sd">        The starting coordinates.</span>
+<span class="sd">    minimizer : callable</span>
+<span class="sd">        The local minimizer, with signature ``result = minimizer(x)``.</span>
+<span class="sd">        The return value is an `optimize.OptimizeResult` object.</span>
+<span class="sd">    step_taking : callable</span>
+<span class="sd">        This function displaces the coordinates randomly.  Signature should</span>
+<span class="sd">        be ``x_new = step_taking(x)``.  Note that `x` may be modified in-place.</span>
+<span class="sd">    accept_tests : list of callables</span>
+<span class="sd">        Each test is passed the kwargs `f_new`, `x_new`, `f_old` and</span>
+<span class="sd">        `x_old`.  These tests will be used to judge whether or not to accept</span>
+<span class="sd">        the step.  The acceptable return values are True, False, or ``&quot;force</span>
+<span class="sd">        accept&quot;``.  If any of the tests return False then the step is rejected.</span>
+<span class="sd">        If ``&quot;force accept&quot;``, then this will override any other tests in</span>
+<span class="sd">        order to accept the step. This can be used, for example, to forcefully</span>
+<span class="sd">        escape from a local minimum that ``basinhopping`` is trapped in.</span>
+<span class="sd">    disp : bool, optional</span>
+<span class="sd">        Display status messages.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="BasinHoppingRunner.__init__"><a class="viewcode-back" href="../../../reference/generated/networkqit.algorithms.basinhoppingmod.BasinHoppingRunner.html#networkqit.algorithms.basinhoppingmod.BasinHoppingRunner.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">minimizer</span><span class="p">,</span> <span class="n">step_taking</span><span class="p">,</span> <span class="n">accept_tests</span><span class="p">,</span> <span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">minimizer</span> <span class="o">=</span> <span class="n">minimizer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">step_taking</span> <span class="o">=</span> <span class="n">step_taking</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">accept_tests</span> <span class="o">=</span> <span class="n">accept_tests</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">disp</span> <span class="o">=</span> <span class="n">disp</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">nstep</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1"># initialize return object</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">res</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">OptimizeResult</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">res</span><span class="o">.</span><span class="n">minimization_failures</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1"># do initial minimization</span>
+        <span class="n">minres</span> <span class="o">=</span> <span class="n">minimizer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">minres</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">res</span><span class="o">.</span><span class="n">minimization_failures</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">disp</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;warning: basinhopping: local minimization failure&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">minres</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">energy</span> <span class="o">=</span> <span class="n">minres</span><span class="o">.</span><span class="n">fun</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">disp</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;basinhopping step </span><span class="si">%d</span><span class="s2">: f </span><span class="si">%g</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nstep</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">energy</span><span class="p">))</span>
+
+        <span class="c1"># initialize storage class</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage</span> <span class="o">=</span> <span class="n">Storage</span><span class="p">(</span><span class="n">minres</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">minres</span><span class="p">,</span> <span class="s2">&quot;nfev&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">res</span><span class="o">.</span><span class="n">nfev</span> <span class="o">=</span> <span class="n">minres</span><span class="o">.</span><span class="n">nfev</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">minres</span><span class="p">,</span> <span class="s2">&quot;njev&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">res</span><span class="o">.</span><span class="n">njev</span> <span class="o">=</span> <span class="n">minres</span><span class="o">.</span><span class="n">njev</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">minres</span><span class="p">,</span> <span class="s2">&quot;nhev&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">res</span><span class="o">.</span><span class="n">nhev</span> <span class="o">=</span> <span class="n">minres</span><span class="o">.</span><span class="n">nhev</span></div>
+
+    <span class="k">def</span> <span class="nf">_monte_carlo_step</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Do one Monte Carlo iteration</span>
+
+<span class="sd">        Randomly displace the coordinates, minimize, and decide whether</span>
+<span class="sd">        or not to accept the new coordinates.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Take a random step.  Make a copy of x because the step_taking</span>
+        <span class="c1"># algorithm might change x in place</span>
+        <span class="n">x_after_step</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x_after_step</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">step_taking</span><span class="p">(</span><span class="n">x_after_step</span><span class="p">)</span>
+
+        <span class="c1"># do a local minimization</span>
+        <span class="n">minres</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">minimizer</span><span class="p">(</span><span class="n">x_after_step</span><span class="p">)</span>
+        <span class="n">x_after_quench</span> <span class="o">=</span> <span class="n">minres</span><span class="o">.</span><span class="n">x</span>
+        <span class="n">energy_after_quench</span> <span class="o">=</span> <span class="n">minres</span><span class="o">.</span><span class="n">fun</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">minres</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">res</span><span class="o">.</span><span class="n">minimization_failures</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">disp</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;warning: basinhopping: local minimization failure&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">minres</span><span class="p">,</span> <span class="s2">&quot;nfev&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">res</span><span class="o">.</span><span class="n">nfev</span> <span class="o">+=</span> <span class="n">minres</span><span class="o">.</span><span class="n">nfev</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">minres</span><span class="p">,</span> <span class="s2">&quot;njev&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">res</span><span class="o">.</span><span class="n">njev</span> <span class="o">+=</span> <span class="n">minres</span><span class="o">.</span><span class="n">njev</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">minres</span><span class="p">,</span> <span class="s2">&quot;nhev&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">res</span><span class="o">.</span><span class="n">nhev</span> <span class="o">+=</span> <span class="n">minres</span><span class="o">.</span><span class="n">nhev</span>
+
+        <span class="c1"># accept the move based on self.accept_tests. If any test is False,</span>
+        <span class="c1"># then reject the step.  If any test returns the special string</span>
+        <span class="c1"># &#39;force accept&#39;, then accept the step regardless.  This can be used</span>
+        <span class="c1"># to forcefully escape from a local minimum if normal basin hopping</span>
+        <span class="c1"># steps are not sufficient.</span>
+        <span class="n">accept</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">for</span> <span class="n">test</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">accept_tests</span><span class="p">:</span>
+            <span class="n">testres</span> <span class="o">=</span> <span class="n">test</span><span class="p">(</span><span class="n">f_new</span><span class="o">=</span><span class="n">energy_after_quench</span><span class="p">,</span> <span class="n">x_new</span><span class="o">=</span><span class="n">x_after_quench</span><span class="p">,</span>
+                           <span class="n">f_old</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">energy</span><span class="p">,</span> <span class="n">x_old</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">testres</span> <span class="o">==</span> <span class="s1">&#39;force accept&#39;</span><span class="p">:</span>
+                <span class="n">accept</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">break</span>
+            <span class="k">elif</span> <span class="n">testres</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;accept_tests must return True, False, or &quot;</span>
+                                 <span class="s2">&quot;&#39;force accept&#39;&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="ow">not</span> <span class="n">testres</span><span class="p">:</span>
+                <span class="n">accept</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="c1"># Report the result of the acceptance test to the take step class.</span>
+        <span class="c1"># This is for adaptive step taking</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">step_taking</span><span class="p">,</span> <span class="s2">&quot;report&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">step_taking</span><span class="o">.</span><span class="n">report</span><span class="p">(</span><span class="n">accept</span><span class="p">,</span> <span class="n">f_new</span><span class="o">=</span><span class="n">energy_after_quench</span><span class="p">,</span>
+                                    <span class="n">x_new</span><span class="o">=</span><span class="n">x_after_quench</span><span class="p">,</span> <span class="n">f_old</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">energy</span><span class="p">,</span>
+                                    <span class="n">x_old</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">accept</span><span class="p">,</span> <span class="n">minres</span>
+
+    <span class="k">def</span> <span class="nf">one_cycle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Do one cycle of the basinhopping algorithm</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nstep</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">new_global_min</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="n">accept</span><span class="p">,</span> <span class="n">minres</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_monte_carlo_step</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">accept</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">energy</span> <span class="o">=</span> <span class="n">minres</span><span class="o">.</span><span class="n">fun</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">minres</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+            <span class="n">new_global_min</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">storage</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">minres</span><span class="p">)</span>
+
+        <span class="c1"># print some information</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">disp</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">print_report</span><span class="p">(</span><span class="n">minres</span><span class="o">.</span><span class="n">fun</span><span class="p">,</span> <span class="n">accept</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">new_global_min</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;found new global minimum on step </span><span class="si">%d</span><span class="s2"> with function&quot;</span>
+                      <span class="s2">&quot; value </span><span class="si">%g</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nstep</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">energy</span><span class="p">))</span>
+
+        <span class="c1"># save some variables as BasinHoppingRunner attributes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xtrial</span> <span class="o">=</span> <span class="n">minres</span><span class="o">.</span><span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">energy_trial</span> <span class="o">=</span> <span class="n">minres</span><span class="o">.</span><span class="n">fun</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">accept</span> <span class="o">=</span> <span class="n">accept</span>
+
+        <span class="k">return</span> <span class="n">new_global_min</span>
+
+    <span class="k">def</span> <span class="nf">print_report</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">energy_trial</span><span class="p">,</span> <span class="n">accept</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;print a status update&quot;&quot;&quot;</span>
+        <span class="n">minres</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">storage</span><span class="o">.</span><span class="n">get_lowest</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;basinhopping step </span><span class="si">%d</span><span class="s2">: f </span><span class="si">%g</span><span class="s2"> trial_f </span><span class="si">%g</span><span class="s2"> accepted </span><span class="si">%d</span><span class="s2"> &quot;</span>
+              <span class="s2">&quot; lowest_f </span><span class="si">%g</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nstep</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">energy</span><span class="p">,</span> <span class="n">energy_trial</span><span class="p">,</span>
+                                <span class="n">accept</span><span class="p">,</span> <span class="n">minres</span><span class="o">.</span><span class="n">fun</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="AdaptiveStepsize"><a class="viewcode-back" href="../../../reference/generated/networkqit.algorithms.basinhoppingmod.AdaptiveStepsize.html#networkqit.algorithms.basinhoppingmod.AdaptiveStepsize">[docs]</a><span class="k">class</span> <span class="nc">AdaptiveStepsize</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class to implement adaptive stepsize.</span>
+
+<span class="sd">    This class wraps the step taking class and modifies the stepsize to</span>
+<span class="sd">    ensure the true acceptance rate is as close as possible to the target.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    takestep : callable</span>
+<span class="sd">        The step taking routine.  Must contain modifiable attribute</span>
+<span class="sd">        takestep.stepsize</span>
+<span class="sd">    accept_rate : float, optional</span>
+<span class="sd">        The target step acceptance rate</span>
+<span class="sd">    interval : int, optional</span>
+<span class="sd">        Interval for how often to update the stepsize</span>
+<span class="sd">    factor : float, optional</span>
+<span class="sd">        The step size is multiplied or divided by this factor upon each</span>
+<span class="sd">        update.</span>
+<span class="sd">    verbose : bool, optional</span>
+<span class="sd">        Print information about each update</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="AdaptiveStepsize.__init__"><a class="viewcode-back" href="../../../reference/generated/networkqit.algorithms.basinhoppingmod.AdaptiveStepsize.html#networkqit.algorithms.basinhoppingmod.AdaptiveStepsize.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">takestep</span><span class="p">,</span> <span class="n">accept_rate</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
+                 <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">takestep</span> <span class="o">=</span> <span class="n">takestep</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target_accept_rate</span> <span class="o">=</span> <span class="n">accept_rate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interval</span> <span class="o">=</span> <span class="n">interval</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">factor</span> <span class="o">=</span> <span class="n">factor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">nstep</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nstep_tot</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">naccept</span> <span class="o">=</span> <span class="mi">0</span></div>
+
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">take_step</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_adjust_step_size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">old_stepsize</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">takestep</span><span class="o">.</span><span class="n">stepsize</span>
+        <span class="n">accept_rate</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">naccept</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">nstep</span>
+        <span class="k">if</span> <span class="n">accept_rate</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_accept_rate</span><span class="p">:</span>
+            <span class="c1"># We&#39;re accepting too many steps.  This generally means we&#39;re</span>
+            <span class="c1"># trapped in a basin.  Take bigger steps</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">takestep</span><span class="o">.</span><span class="n">stepsize</span> <span class="o">/=</span> <span class="bp">self</span><span class="o">.</span><span class="n">factor</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># We&#39;re not accepting enough steps.  Take smaller steps</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">takestep</span><span class="o">.</span><span class="n">stepsize</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">factor</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;adaptive stepsize: acceptance rate </span><span class="si">%f</span><span class="s2"> target </span><span class="si">%f</span><span class="s2"> new &quot;</span>
+                  <span class="s2">&quot;stepsize </span><span class="si">%g</span><span class="s2"> old stepsize </span><span class="si">%g</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">accept_rate</span><span class="p">,</span>
+                  <span class="bp">self</span><span class="o">.</span><span class="n">target_accept_rate</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">takestep</span><span class="o">.</span><span class="n">stepsize</span><span class="p">,</span>
+                  <span class="n">old_stepsize</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">take_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nstep</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nstep_tot</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nstep</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">interval</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_adjust_step_size</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">takestep</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">report</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">accept</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="s2">&quot;called by basinhopping to report the result of the step&quot;</span>
+        <span class="k">if</span> <span class="n">accept</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">naccept</span> <span class="o">+=</span> <span class="mi">1</span></div>
+
+
+<div class="viewcode-block" id="RandomDisplacement"><a class="viewcode-back" href="../../../reference/generated/networkqit.algorithms.basinhoppingmod.RandomDisplacement.html#networkqit.algorithms.basinhoppingmod.RandomDisplacement">[docs]</a><span class="k">class</span> <span class="nc">RandomDisplacement</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add a random displacement of maximum size `stepsize` to each coordinate</span>
+
+<span class="sd">    Calling this updates `x` in-place.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    stepsize : float, optional</span>
+<span class="sd">        Maximum stepsize in any dimension</span>
+<span class="sd">    random_state : None or `np.random.RandomState` instance, optional</span>
+<span class="sd">        The random number generator that generates the displacements</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="RandomDisplacement.__init__"><a class="viewcode-back" href="../../../reference/generated/networkqit.algorithms.basinhoppingmod.RandomDisplacement.html#networkqit.algorithms.basinhoppingmod.RandomDisplacement.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stepsize</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stepsize</span> <span class="o">=</span> <span class="n">stepsize</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">random_state</span> <span class="o">=</span> <span class="n">check_random_state</span><span class="p">(</span><span class="n">random_state</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">random_state</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">stepsize</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">stepsize</span><span class="p">,</span>
+                                       <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">x</span></div>
+
+
+<div class="viewcode-block" id="MinimizerWrapper"><a class="viewcode-back" href="../../../reference/generated/networkqit.algorithms.basinhoppingmod.MinimizerWrapper.html#networkqit.algorithms.basinhoppingmod.MinimizerWrapper">[docs]</a><span class="k">class</span> <span class="nc">MinimizerWrapper</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    wrap a minimizer function as a minimizer class</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="MinimizerWrapper.__init__"><a class="viewcode-back" href="../../../reference/generated/networkqit.algorithms.basinhoppingmod.MinimizerWrapper.html#networkqit.algorithms.basinhoppingmod.MinimizerWrapper.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">minimizer</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">minimizer</span> <span class="o">=</span> <span class="n">minimizer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">func</span> <span class="o">=</span> <span class="n">func</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span> <span class="o">=</span> <span class="n">kwargs</span></div>
+
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x0</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">minimizer</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">minimizer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Metropolis"><a class="viewcode-back" href="../../../reference/generated/networkqit.algorithms.basinhoppingmod.Metropolis.html#networkqit.algorithms.basinhoppingmod.Metropolis">[docs]</a><span class="k">class</span> <span class="nc">Metropolis</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Metropolis acceptance criterion</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    T : float</span>
+<span class="sd">        The &quot;temperature&quot; parameter for the accept or reject criterion.</span>
+<span class="sd">    random_state : None or `np.random.RandomState` object</span>
+<span class="sd">        Random number generator used for acceptance test</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Metropolis.__init__"><a class="viewcode-back" href="../../../reference/generated/networkqit.algorithms.basinhoppingmod.Metropolis.html#networkqit.algorithms.basinhoppingmod.Metropolis.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="c1"># Avoid ZeroDivisionError since &quot;MBH can be regarded as a special case</span>
+        <span class="c1"># of the BH framework with the Metropolis criterion, where temperature</span>
+        <span class="c1"># T = 0.&quot;  (Reject all steps that increase energy.)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">beta</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">T</span> <span class="k">if</span> <span class="n">T</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">else</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">random_state</span> <span class="o">=</span> <span class="n">check_random_state</span><span class="p">(</span><span class="n">random_state</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">accept_reject</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">energy_new</span><span class="p">,</span> <span class="n">energy_old</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        If new energy is lower than old, it will always be accepted.</span>
+<span class="sd">        If new is higher than old, there is a chance it will be accepted,</span>
+<span class="sd">        less likely for larger differences.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">w</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="nb">float</span><span class="p">(</span><span class="n">energy_new</span> <span class="o">-</span> <span class="n">energy_old</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">beta</span><span class="p">))</span>
+        <span class="n">rand</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">random_state</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">w</span> <span class="o">&gt;=</span> <span class="n">rand</span>
+
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        f_new and f_old are mandatory in kwargs</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">accept_reject</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;f_new&quot;</span><span class="p">],</span>
+                    <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;f_old&quot;</span><span class="p">]))</span></div>
+
+
+<span class="k">def</span> <span class="nf">basinhopping</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">niter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">stepsize</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+                 <span class="n">minimizer_kwargs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">take_step</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">accept_test</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">minimize_routine</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">niter_success</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Find the global minimum of a function using the basin-hopping algorithm</span>
+
+<span class="sd">    Basin-hopping is a two-phase method that combines a global stepping</span>
+<span class="sd">    algorithm with local minimization at each step.  Designed to mimic</span>
+<span class="sd">    the natural process of energy minimization of clusters of atoms, it works</span>
+<span class="sd">    well for similar problems with &quot;funnel-like, but rugged&quot; energy landscapes</span>
+<span class="sd">    [5]_.</span>
+
+<span class="sd">    As the step-taking, step acceptance, and minimization methods are all</span>
+<span class="sd">    customizable, this function can also be used to implement other two-phase</span>
+<span class="sd">    methods.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    func : callable ``f(x, *args)``</span>
+<span class="sd">        Function to be optimized.  ``args`` can be passed as an optional item</span>
+<span class="sd">        in the dict ``minimizer_kwargs``</span>
+<span class="sd">    x0 : array_like</span>
+<span class="sd">        Initial guess.</span>
+<span class="sd">    niter : integer, optional</span>
+<span class="sd">        The number of basin-hopping iterations</span>
+<span class="sd">    T : float, optional</span>
+<span class="sd">        The &quot;temperature&quot; parameter for the accept or reject criterion.  Higher</span>
+<span class="sd">        &quot;temperatures&quot; mean that larger jumps in function value will be</span>
+<span class="sd">        accepted.  For best results ``T`` should be comparable to the</span>
+<span class="sd">        separation (in function value) between local minima.</span>
+<span class="sd">    stepsize : float, optional</span>
+<span class="sd">        Maximum step size for use in the random displacement.</span>
+<span class="sd">    minimizer_kwargs : dict, optional</span>
+<span class="sd">        Extra keyword arguments to be passed to the local minimizer</span>
+<span class="sd">        ``scipy.optimize.minimize()`` Some important options could be:</span>
+
+<span class="sd">            method : str</span>
+<span class="sd">                The minimization method (e.g. ``&quot;L-BFGS-B&quot;``)</span>
+<span class="sd">            args : tuple</span>
+<span class="sd">                Extra arguments passed to the objective function (``func``) and</span>
+<span class="sd">                its derivatives (Jacobian, Hessian).</span>
+
+<span class="sd">    take_step : callable ``take_step(x)``, optional</span>
+<span class="sd">        Replace the default step-taking routine with this routine.  The default</span>
+<span class="sd">        step-taking routine is a random displacement of the coordinates, but</span>
+<span class="sd">        other step-taking algorithms may be better for some systems.</span>
+<span class="sd">        ``take_step`` can optionally have the attribute ``take_step.stepsize``.</span>
+<span class="sd">        If this attribute exists, then ``basinhopping`` will adjust</span>
+<span class="sd">        ``take_step.stepsize`` in order to try to optimize the global minimum</span>
+<span class="sd">        search.</span>
+<span class="sd">    accept_test : callable, ``accept_test(f_new=f_new, x_new=x_new, f_old=fold, x_old=x_old)``, optional</span>
+<span class="sd">        Define a test which will be used to judge whether or not to accept the</span>
+<span class="sd">        step.  This will be used in addition to the Metropolis test based on</span>
+<span class="sd">        &quot;temperature&quot; ``T``.  The acceptable return values are True,</span>
+<span class="sd">        False, or ``&quot;force accept&quot;``. If any of the tests return False</span>
+<span class="sd">        then the step is rejected. If the latter, then this will override any</span>
+<span class="sd">        other tests in order to accept the step. This can be used, for example,</span>
+<span class="sd">        to forcefully escape from a local minimum that ``basinhopping`` is</span>
+<span class="sd">        trapped in.</span>
+<span class="sd">    callback : callable, ``callback(x, f, accept)``, optional</span>
+<span class="sd">        A callback function which will be called for all minima found.  ``x``</span>
+<span class="sd">        and ``f`` are the coordinates and function value of the trial minimum,</span>
+<span class="sd">        and ``accept`` is whether or not that minimum was accepted.  This can</span>
+<span class="sd">        be used, for example, to save the lowest N minima found.  Also,</span>
+<span class="sd">        ``callback`` can be used to specify a user defined stop criterion by</span>
+<span class="sd">        optionally returning True to stop the ``basinhopping`` routine.</span>
+<span class="sd">    interval : integer, optional</span>
+<span class="sd">        interval for how often to update the ``stepsize``</span>
+<span class="sd">    disp : bool, optional</span>
+<span class="sd">        Set to True to print status messages</span>
+<span class="sd">    niter_success : integer, optional</span>
+<span class="sd">        Stop the run if the global minimum candidate remains the same for this</span>
+<span class="sd">        number of iterations.</span>
+<span class="sd">    seed : int or `np.random.RandomState`, optional</span>
+<span class="sd">        If `seed` is not specified the `np.RandomState` singleton is used.</span>
+<span class="sd">        If `seed` is an int, a new `np.random.RandomState` instance is used,</span>
+<span class="sd">        seeded with seed.</span>
+<span class="sd">        If `seed` is already a `np.random.RandomState instance`, then that</span>
+<span class="sd">        `np.random.RandomState` instance is used.</span>
+<span class="sd">        Specify `seed` for repeatable minimizations. The random numbers</span>
+<span class="sd">        generated with this seed only affect the default Metropolis</span>
+<span class="sd">        `accept_test` and the default `take_step`. If you supply your own</span>
+<span class="sd">        `take_step` and `accept_test`, and these functions use random</span>
+<span class="sd">        number generation, then those functions are responsible for the state</span>
+<span class="sd">        of their random number generator.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    res : OptimizeResult</span>
+<span class="sd">        The optimization result represented as a ``OptimizeResult`` object.</span>
+<span class="sd">        Important attributes are: ``x`` the solution array, ``fun`` the value</span>
+<span class="sd">        of the function at the solution, and ``message`` which describes the</span>
+<span class="sd">        cause of the termination. The ``OptimizeResult`` object returned by the</span>
+<span class="sd">        selected minimizer at the lowest minimum is also contained within this</span>
+<span class="sd">        object and can be accessed through the ``lowest_optimization_result``</span>
+<span class="sd">        attribute.  See `OptimizeResult` for a description of other attributes.</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    minimize :</span>
+<span class="sd">        The local minimization function called once for each basinhopping step.</span>
+<span class="sd">        ``minimizer_kwargs`` is passed to this routine.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Basin-hopping is a stochastic algorithm which attempts to find the global</span>
+<span class="sd">    minimum of a smooth scalar function of one or more variables [1]_ [2]_ [3]_</span>
+<span class="sd">    [4]_.  The algorithm in its current form was described by David Wales and</span>
+<span class="sd">    Jonathan Doye [2]_ http://www-wales.ch.cam.ac.uk/.</span>
+
+<span class="sd">    The algorithm is iterative with each cycle composed of the following</span>
+<span class="sd">    features</span>
+
+<span class="sd">    1) random perturbation of the coordinates</span>
+
+<span class="sd">    2) local minimization</span>
+
+<span class="sd">    3) accept or reject the new coordinates based on the minimized function</span>
+<span class="sd">       value</span>
+
+<span class="sd">    The acceptance test used here is the Metropolis criterion of standard Monte</span>
+<span class="sd">    Carlo algorithms, although there are many other possibilities [3]_.</span>
+
+<span class="sd">    This global minimization method has been shown to be extremely efficient</span>
+<span class="sd">    for a wide variety of problems in physics and chemistry.  It is</span>
+<span class="sd">    particularly useful when the function has many minima separated by large</span>
+<span class="sd">    barriers. See the Cambridge Cluster Database</span>
+<span class="sd">    http://www-wales.ch.cam.ac.uk/CCD.html for databases of molecular systems</span>
+<span class="sd">    that have been optimized primarily using basin-hopping.  This database</span>
+<span class="sd">    includes minimization problems exceeding 300 degrees of freedom.</span>
+
+<span class="sd">    See the free software program GMIN (http://www-wales.ch.cam.ac.uk/GMIN) for</span>
+<span class="sd">    a Fortran implementation of basin-hopping.  This implementation has many</span>
+<span class="sd">    different variations of the procedure described above, including more</span>
+<span class="sd">    advanced step taking algorithms and alternate acceptance criterion.</span>
+
+<span class="sd">    For stochastic global optimization there is no way to determine if the true</span>
+<span class="sd">    global minimum has actually been found. Instead, as a consistency check,</span>
+<span class="sd">    the algorithm can be run from a number of different random starting points</span>
+<span class="sd">    to ensure the lowest minimum found in each example has converged to the</span>
+<span class="sd">    global minimum.  For this reason ``basinhopping`` will by default simply</span>
+<span class="sd">    run for the number of iterations ``niter`` and return the lowest minimum</span>
+<span class="sd">    found.  It is left to the user to ensure that this is in fact the global</span>
+<span class="sd">    minimum.</span>
+
+<span class="sd">    Choosing ``stepsize``:  This is a crucial parameter in ``basinhopping`` and</span>
+<span class="sd">    depends on the problem being solved.  The step is chosen uniformly in the</span>
+<span class="sd">    region from x0-stepsize to x0+stepsize, in each dimension.  Ideally it</span>
+<span class="sd">    should be comparable to the typical separation (in argument values) between</span>
+<span class="sd">    local minima of the function being optimized.  ``basinhopping`` will, by</span>
+<span class="sd">    default, adjust ``stepsize`` to find an optimal value, but this may take</span>
+<span class="sd">    many iterations.  You will get quicker results if you set a sensible</span>
+<span class="sd">    initial value for ``stepsize``.</span>
+
+<span class="sd">    Choosing ``T``: The parameter ``T`` is the &quot;temperature&quot; used in the</span>
+<span class="sd">    Metropolis criterion.  Basinhopping steps are always accepted if</span>
+<span class="sd">    ``func(xnew) &lt; func(xold)``.  Otherwise, they are accepted with</span>
+<span class="sd">    probability::</span>
+
+<span class="sd">        exp( -(func(xnew) - func(xold)) / T )</span>
+
+<span class="sd">    So, for best results, ``T`` should to be comparable to the typical</span>
+<span class="sd">    difference (in function values) between local minima.  (The height of</span>
+<span class="sd">    &quot;walls&quot; between local minima is irrelevant.)</span>
+
+<span class="sd">    If ``T`` is 0, the algorithm becomes Monotonic Basin-Hopping, in which all</span>
+<span class="sd">    steps that increase energy are rejected.</span>
+
+<span class="sd">    .. versionadded:: 0.12.0</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [1] Wales, David J. 2003, Energy Landscapes, Cambridge University Press,</span>
+<span class="sd">        Cambridge, UK.</span>
+<span class="sd">    .. [2] Wales, D J, and Doye J P K, Global Optimization by Basin-Hopping and</span>
+<span class="sd">        the Lowest Energy Structures of Lennard-Jones Clusters Containing up to</span>
+<span class="sd">        110 Atoms.  Journal of Physical Chemistry A, 1997, 101, 5111.</span>
+<span class="sd">    .. [3] Li, Z. and Scheraga, H. A., Monte Carlo-minimization approach to the</span>
+<span class="sd">        multiple-minima problem in protein folding, Proc. Natl. Acad. Sci. USA,</span>
+<span class="sd">        1987, 84, 6611.</span>
+<span class="sd">    .. [4] Wales, D. J. and Scheraga, H. A., Global optimization of clusters,</span>
+<span class="sd">        crystals, and biomolecules, Science, 1999, 285, 1368.</span>
+<span class="sd">    .. [5] Olson, B., Hashmi, I., Molloy, K., and Shehu1, A., Basin Hopping as</span>
+<span class="sd">        a General and Versatile Optimization Framework for the Characterization</span>
+<span class="sd">        of Biological Macromolecules, Advances in Artificial Intelligence,</span>
+<span class="sd">        Volume 2012 (2012), Article ID 674832, :doi:`10.1155/2012/674832`</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    The following example is a one-dimensional minimization problem,  with many</span>
+<span class="sd">    local minima superimposed on a parabola.</span>
+
+<span class="sd">    &gt;&gt;&gt; from scipy.optimize import basinhopping</span>
+<span class="sd">    &gt;&gt;&gt; func = lambda x: np.cos(14.5 * x - 0.3) + (x + 0.2) * x</span>
+<span class="sd">    &gt;&gt;&gt; x0=[1.]</span>
+
+<span class="sd">    Basinhopping, internally, uses a local minimization algorithm.  We will use</span>
+<span class="sd">    the parameter ``minimizer_kwargs`` to tell basinhopping which algorithm to</span>
+<span class="sd">    use and how to set up that minimizer.  This parameter will be passed to</span>
+<span class="sd">    ``scipy.optimize.minimize()``.</span>
+
+<span class="sd">    &gt;&gt;&gt; minimizer_kwargs = {&quot;method&quot;: &quot;BFGS&quot;}</span>
+<span class="sd">    &gt;&gt;&gt; ret = basinhopping(func, x0, minimizer_kwargs=minimizer_kwargs,</span>
+<span class="sd">    ...                    niter=200)</span>
+<span class="sd">    &gt;&gt;&gt; print(&quot;global minimum: x = %.4f, f(x0) = %.4f&quot; % (ret.x, ret.fun))</span>
+<span class="sd">    global minimum: x = -0.1951, f(x0) = -1.0009</span>
+
+<span class="sd">    Next consider a two-dimensional minimization problem. Also, this time we</span>
+<span class="sd">    will use gradient information to significantly speed up the search.</span>
+
+<span class="sd">    &gt;&gt;&gt; def func2d(x):</span>
+<span class="sd">    ...     f = np.cos(14.5 * x[0] - 0.3) + (x[1] + 0.2) * x[1] + (x[0] +</span>
+<span class="sd">    ...                                                            0.2) * x[0]</span>
+<span class="sd">    ...     df = np.zeros(2)</span>
+<span class="sd">    ...     df[0] = -14.5 * np.sin(14.5 * x[0] - 0.3) + 2. * x[0] + 0.2</span>
+<span class="sd">    ...     df[1] = 2. * x[1] + 0.2</span>
+<span class="sd">    ...     return f, df</span>
+
+<span class="sd">    We&#39;ll also use a different local minimization algorithm.  Also we must tell</span>
+<span class="sd">    the minimizer that our function returns both energy and gradient (jacobian)</span>
+
+<span class="sd">    &gt;&gt;&gt; minimizer_kwargs = {&quot;method&quot;:&quot;L-BFGS-B&quot;, &quot;jac&quot;:True}</span>
+<span class="sd">    &gt;&gt;&gt; x0 = [1.0, 1.0]</span>
+<span class="sd">    &gt;&gt;&gt; ret = basinhopping(func2d, x0, minimizer_kwargs=minimizer_kwargs,</span>
+<span class="sd">    ...                    niter=200)</span>
+<span class="sd">    &gt;&gt;&gt; print(&quot;global minimum: x = [%.4f, %.4f], f(x0) = %.4f&quot; % (ret.x[0],</span>
+<span class="sd">    ...                                                           ret.x[1],</span>
+<span class="sd">    ...                                                           ret.fun))</span>
+<span class="sd">    global minimum: x = [-0.1951, -0.1000], f(x0) = -1.0109</span>
+
+
+<span class="sd">    Here is an example using a custom step-taking routine.  Imagine you want</span>
+<span class="sd">    the first coordinate to take larger steps than the rest of the coordinates.</span>
+<span class="sd">    This can be implemented like so:</span>
+
+<span class="sd">    &gt;&gt;&gt; class MyTakeStep(object):</span>
+<span class="sd">    ...    def __init__(self, stepsize=0.5):</span>
+<span class="sd">    ...        self.stepsize = stepsize</span>
+<span class="sd">    ...    def __call__(self, x):</span>
+<span class="sd">    ...        s = self.stepsize</span>
+<span class="sd">    ...        x[0] += np.random.uniform(-2.*s, 2.*s)</span>
+<span class="sd">    ...        x[1:] += np.random.uniform(-s, s, x[1:].shape)</span>
+<span class="sd">    ...        return x</span>
+
+<span class="sd">    Since ``MyTakeStep.stepsize`` exists basinhopping will adjust the magnitude</span>
+<span class="sd">    of ``stepsize`` to optimize the search.  We&#39;ll use the same 2-D function as</span>
+<span class="sd">    before</span>
+
+<span class="sd">    &gt;&gt;&gt; mytakestep = MyTakeStep()</span>
+<span class="sd">    &gt;&gt;&gt; ret = basinhopping(func2d, x0, minimizer_kwargs=minimizer_kwargs,</span>
+<span class="sd">    ...                    niter=200, take_step=mytakestep)</span>
+<span class="sd">    &gt;&gt;&gt; print(&quot;global minimum: x = [%.4f, %.4f], f(x0) = %.4f&quot; % (ret.x[0],</span>
+<span class="sd">    ...                                                           ret.x[1],</span>
+<span class="sd">    ...                                                           ret.fun))</span>
+<span class="sd">    global minimum: x = [-0.1951, -0.1000], f(x0) = -1.0109</span>
+
+
+<span class="sd">    Now let&#39;s do an example using a custom callback function which prints the</span>
+<span class="sd">    value of every minimum found</span>
+
+<span class="sd">    &gt;&gt;&gt; def print_fun(x, f, accepted):</span>
+<span class="sd">    ...         print(&quot;at minimum %.4f accepted %d&quot; % (f, int(accepted)))</span>
+
+<span class="sd">    We&#39;ll run it for only 10 basinhopping steps this time.</span>
+
+<span class="sd">    &gt;&gt;&gt; np.random.seed(1)</span>
+<span class="sd">    &gt;&gt;&gt; ret = basinhopping(func2d, x0, minimizer_kwargs=minimizer_kwargs,</span>
+<span class="sd">    ...                    niter=10, callback=print_fun)</span>
+<span class="sd">    at minimum 0.4159 accepted 1</span>
+<span class="sd">    at minimum -0.9073 accepted 1</span>
+<span class="sd">    at minimum -0.1021 accepted 1</span>
+<span class="sd">    at minimum -0.1021 accepted 1</span>
+<span class="sd">    at minimum 0.9102 accepted 1</span>
+<span class="sd">    at minimum 0.9102 accepted 1</span>
+<span class="sd">    at minimum 2.2945 accepted 0</span>
+<span class="sd">    at minimum -0.1021 accepted 1</span>
+<span class="sd">    at minimum -1.0109 accepted 1</span>
+<span class="sd">    at minimum -1.0109 accepted 1</span>
+
+
+<span class="sd">    The minimum at -1.0109 is actually the global minimum, found already on the</span>
+<span class="sd">    8th iteration.</span>
+
+<span class="sd">    Now let&#39;s implement bounds on the problem using a custom ``accept_test``:</span>
+
+<span class="sd">    &gt;&gt;&gt; class MyBounds(object):</span>
+<span class="sd">    ...     def __init__(self, xmax=[1.1,1.1], xmin=[-1.1,-1.1] ):</span>
+<span class="sd">    ...         self.xmax = np.array(xmax)</span>
+<span class="sd">    ...         self.xmin = np.array(xmin)</span>
+<span class="sd">    ...     def __call__(self, **kwargs):</span>
+<span class="sd">    ...         x = kwargs[&quot;x_new&quot;]</span>
+<span class="sd">    ...         tmax = bool(np.all(x &lt;= self.xmax))</span>
+<span class="sd">    ...         tmin = bool(np.all(x &gt;= self.xmin))</span>
+<span class="sd">    ...         return tmax and tmin</span>
+
+<span class="sd">    &gt;&gt;&gt; mybounds = MyBounds()</span>
+<span class="sd">    &gt;&gt;&gt; ret = basinhopping(func2d, x0, minimizer_kwargs=minimizer_kwargs,</span>
+<span class="sd">    ...                    niter=10, accept_test=mybounds)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
+
+    <span class="c1"># set up the np.random.RandomState generator</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">check_random_state</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+
+    <span class="c1"># set up minimizer</span>
+    <span class="k">if</span> <span class="n">minimizer_kwargs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">minimizer_kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">minimize_routine</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">wrapped_minimizer</span> <span class="o">=</span> <span class="n">MinimizerWrapper</span><span class="p">(</span><span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="o">**</span><span class="n">minimizer_kwargs</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">wrapped_minimizer</span> <span class="o">=</span> <span class="n">MinimizerWrapper</span><span class="p">(</span><span class="n">minimize_routine</span><span class="p">,</span> <span class="n">minimizer_kwargs</span><span class="p">[</span><span class="s1">&#39;saddle_point_equations&#39;</span><span class="p">],</span> <span class="o">**</span><span class="n">minimizer_kwargs</span><span class="p">)</span>
+    
+    <span class="c1"># set up step-taking algorithm</span>
+    <span class="k">if</span> <span class="n">take_step</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">take_step</span><span class="p">,</span> <span class="n">collections</span><span class="o">.</span><span class="n">Callable</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;take_step must be callable&quot;</span><span class="p">)</span>
+        <span class="c1"># if take_step.stepsize exists then use AdaptiveStepsize to control</span>
+        <span class="c1"># take_step.stepsize</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">take_step</span><span class="p">,</span> <span class="s2">&quot;stepsize&quot;</span><span class="p">):</span>
+            <span class="n">take_step_wrapped</span> <span class="o">=</span> <span class="n">AdaptiveStepsize</span><span class="p">(</span><span class="n">take_step</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="n">interval</span><span class="p">,</span>
+                                                 <span class="n">verbose</span><span class="o">=</span><span class="n">disp</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">take_step_wrapped</span> <span class="o">=</span> <span class="n">take_step</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># use default</span>
+        <span class="n">displace</span> <span class="o">=</span> <span class="n">RandomDisplacement</span><span class="p">(</span><span class="n">stepsize</span><span class="o">=</span><span class="n">stepsize</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">rng</span><span class="p">)</span>
+        <span class="n">take_step_wrapped</span> <span class="o">=</span> <span class="n">AdaptiveStepsize</span><span class="p">(</span><span class="n">displace</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="n">interval</span><span class="p">,</span>
+                                             <span class="n">verbose</span><span class="o">=</span><span class="n">disp</span><span class="p">)</span>
+
+    <span class="c1"># set up accept tests</span>
+    <span class="k">if</span> <span class="n">accept_test</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">accept_test</span><span class="p">,</span> <span class="n">collections</span><span class="o">.</span><span class="n">Callable</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;accept_test must be callable&quot;</span><span class="p">)</span>
+        <span class="n">accept_tests</span> <span class="o">=</span> <span class="p">[</span><span class="n">accept_test</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">accept_tests</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># use default</span>
+    <span class="n">metropolis</span> <span class="o">=</span> <span class="n">Metropolis</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">rng</span><span class="p">)</span>
+    <span class="n">accept_tests</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">metropolis</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">niter_success</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">niter_success</span> <span class="o">=</span> <span class="n">niter</span> <span class="o">+</span> <span class="mi">2</span>
+
+    <span class="n">bh</span> <span class="o">=</span> <span class="n">BasinHoppingRunner</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">wrapped_minimizer</span><span class="p">,</span> <span class="n">take_step_wrapped</span><span class="p">,</span>
+                            <span class="n">accept_tests</span><span class="p">,</span> <span class="n">disp</span><span class="o">=</span><span class="n">disp</span><span class="p">)</span>
+
+    <span class="c1"># start main iteration loop</span>
+    <span class="n">count</span><span class="p">,</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;requested number of basinhopping iterations completed&quot;</span>
+               <span class="s2">&quot; successfully&quot;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">niter</span><span class="p">):</span>
+        <span class="n">new_global_min</span> <span class="o">=</span> <span class="n">bh</span><span class="o">.</span><span class="n">one_cycle</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">callback</span><span class="p">,</span> <span class="n">collections</span><span class="o">.</span><span class="n">Callable</span><span class="p">):</span>
+            <span class="c1"># should we pass a copy of x?</span>
+            <span class="n">val</span> <span class="o">=</span> <span class="n">callback</span><span class="p">(</span><span class="n">bh</span><span class="o">.</span><span class="n">xtrial</span><span class="p">,</span> <span class="n">bh</span><span class="o">.</span><span class="n">energy_trial</span><span class="p">,</span> <span class="n">bh</span><span class="o">.</span><span class="n">accept</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">val</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">val</span><span class="p">:</span>
+                    <span class="n">message</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;callback function requested stop early by&quot;</span>
+                               <span class="s2">&quot;returning True&quot;</span><span class="p">]</span>
+                    <span class="k">break</span>
+
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">new_global_min</span><span class="p">:</span>
+            <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">elif</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="n">niter_success</span><span class="p">:</span>
+            <span class="n">message</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;success condition satisfied&quot;</span><span class="p">]</span>
+            <span class="k">break</span>
+
+    <span class="c1"># prepare return object</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">bh</span><span class="o">.</span><span class="n">res</span>
+    <span class="n">res</span><span class="o">.</span><span class="n">lowest_optimization_result</span> <span class="o">=</span> <span class="n">bh</span><span class="o">.</span><span class="n">storage</span><span class="o">.</span><span class="n">get_lowest</span><span class="p">()</span>
+    <span class="n">res</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">lowest_optimization_result</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">res</span><span class="o">.</span><span class="n">fun</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">lowest_optimization_result</span><span class="o">.</span><span class="n">fun</span>
+    <span class="n">res</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="n">message</span>
+    <span class="n">res</span><span class="o">.</span><span class="n">nit</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">res</span>
+
+
+<div class="viewcode-block" id="BHBounds"><a class="viewcode-back" href="../../../reference/generated/networkqit.algorithms.basinhoppingmod.BHBounds.html#networkqit.algorithms.basinhoppingmod.BHBounds">[docs]</a><span class="k">class</span> <span class="nc">BHBounds</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="BHBounds.__init__"><a class="viewcode-back" href="../../../reference/generated/networkqit.algorithms.basinhoppingmod.BHBounds.html#networkqit.algorithms.basinhoppingmod.BHBounds.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xmin</span> <span class="o">=</span> <span class="n">xmin</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xmax</span> <span class="o">=</span> <span class="n">xmax</span></div>
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;x_new&quot;</span><span class="p">]</span>
+        <span class="n">tmin</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xmin</span><span class="p">))</span>
+        <span class="n">tmax</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xmax</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">tmin</span> <span class="ow">and</span> <span class="n">tmax</span></div>
+    
+    
+<div class="viewcode-block" id="BHRandStepBounded"><a class="viewcode-back" href="../../../reference/generated/networkqit.algorithms.basinhoppingmod.BHRandStepBounded.html#networkqit.algorithms.basinhoppingmod.BHRandStepBounded">[docs]</a><span class="k">class</span> <span class="nc">BHRandStepBounded</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Bounded random displacement:  see: https://stackoverflow.com/a/21967888/2320035</span>
+<span class="sd">        Modified! (dropped acceptance-rejection sampling for a more specialized approach)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="BHRandStepBounded.__init__"><a class="viewcode-back" href="../../../reference/generated/networkqit.algorithms.basinhoppingmod.BHRandStepBounded.html#networkqit.algorithms.basinhoppingmod.BHRandStepBounded.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">stepsize</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xmin</span> <span class="o">=</span> <span class="n">xmin</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xmax</span> <span class="o">=</span> <span class="n">xmax</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stepsize</span> <span class="o">=</span> <span class="n">stepsize</span></div>
+
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;take a random step but ensure the new position is within the bounds &quot;&quot;&quot;</span>
+        <span class="n">min_step</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xmin</span> <span class="o">-</span> <span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">stepsize</span><span class="p">)</span>
+        <span class="n">max_step</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xmax</span> <span class="o">-</span> <span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">stepsize</span><span class="p">)</span>
+        <span class="n">random_step</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="n">min_step</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="n">max_step</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+        <span class="n">xnew</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">random_step</span>
+        <span class="k">return</span> <span class="n">xnew</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019, networkqit Developers
+      <span class="lastupdated">
+        Last updated on Apr 16, 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

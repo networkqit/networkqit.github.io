@@ -1,0 +1,249 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>networkqit.algorithms.community.reassign_singletons &mdash; networkqit beta documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/copybutton.js"></script>
+        <script async="async" type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within networkqit beta documentation"
+          href="../../_static/opensearch.xml"/>
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="License" href="../../license.html" />
+    <link rel="prev" title="networkqit.algorithms.community.reindex_membership" href="networkqit.algorithms.community.reindex_membership.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> networkqit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../infotheory.html">Information theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphtheory.html">Graph theory</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../algorithms.html">Algorithms</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../algorithms.html#module-networkqit.algorithms.optimize">Optimization methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algorithms.html#module-networkqit.algorithms.basinhoppingmod">Basinhopping modified</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../algorithms.html#module-networkqit.algorithms.community">Community detection utilities</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="networkqit.algorithms.community.comm_mat.html">networkqit.algorithms.community.comm_mat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="networkqit.algorithms.community.comm_assortativity.html">networkqit.algorithms.community.comm_assortativity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="networkqit.algorithms.community.reindex_membership.html">networkqit.algorithms.community.reindex_membership</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">networkqit.algorithms.community.reassign_singletons</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../citing.html">Citing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../citing.html#references">References</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">networkqit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../algorithms.html">Algorithms</a> &raquo;</li>
+        
+      <li>networkqit.algorithms.community.reassign_singletons</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="networkqit-algorithms-community-reassign-singletons">
+<h1>networkqit.algorithms.community.reassign_singletons<a class="headerlink" href="#networkqit-algorithms-community-reassign-singletons" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="networkqit.algorithms.community.reassign_singletons">
+<code class="descname">reassign_singletons</code><span class="sig-paren">(</span><em>memb</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/networkqit/algorithms/community.html#reassign_singletons"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#networkqit.algorithms.community.reassign_singletons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set all the singleton communities into the same community.
+If membership has C communities, S of which are singletons, then
+this function sets the singleton communities with the label C + 1
+Args:</p>
+<blockquote>
+<div><p>memb (np.array): the input membership vector</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Output:</dt><dd><p>an array where all the nodes with a single community are merged 
+into one.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../license.html" class="btn btn-neutral float-right" title="License" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="networkqit.algorithms.community.reindex_membership.html" class="btn btn-neutral float-left" title="networkqit.algorithms.community.reindex_membership" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019, networkqit Developers
+      <span class="lastupdated">
+        Last updated on Apr 16, 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
